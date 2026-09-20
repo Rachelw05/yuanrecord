@@ -424,6 +424,24 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914727090
+        },
+        {
+          "id": "mu9x0n3oq5c6l",
+          "agent": "孙权",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914733044
+        },
+        {
+          "id": "mu9x0sohvwc2j",
+          "agent": "满宠",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914740273
         }
       ],
       "createdAt": "2026-09-20"
