@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#26262e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="抽卡记录">
+<title>抽卡记录</title>
+<style>
+:root{
+  --bg1:#fdf6e9; --bg2:#f9e9c8; --bg3:#f2d9a6;
+  --ink:#4a3728; --ink2:#8a7a62; --ink3:#b6a88c;
+  --gold:#d99b3f; --gold-deep:#b97a1e;
+  --g1:#f9e3b4; --g2:#efc377;
+  --card:#ffffff; --line:#f0e4cd;
+  --red:#d05a4e; --purple:#8b7fd6; --green:#5a9e6f;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--ink); font-size:14px; line-height:1.5;
+  background:linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 45%,var(--bg3) 100%);
+  background-attachment:fixed; -webkit-font-smoothing:antialiased;
+}
+.phone{max-width:440px;margin:0 auto;min-height:100vh;padding-bottom:40px}
+
+/* ===== 顶栏 ===== */
+.topbar{
+  position:sticky;top:0;z-index:30;height:52px;
+  background:#26262e;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 10px rgba(60,40,10,.18);
+}
+.topbar .title{font-size:16px;font-weight:600;letter-spacing:2px}
+.topbar .acts{position:absolute;right:10px;display:flex;gap:4px;align-items:center}
+.icon-btn{
+  width:34px;height:30px;border-radius:16px;background:rgba(255,255,255,.12);
+  color:#fff;font-size:15px;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;
+}
+.icon-btn:active{background:rgba(255,255,255,.24)}
+.menu{
+  position:absolute;top:48px;right:10px;background:#fff;color:var(--ink);
+  border-radius:12px;box-shadow:0 10px 30px rgba(60,40,10,.22);overflow:hidden;
+  min-width:132px;display:none;z-index:40;
+}
+.menu.show{display:block}
+.menu button{
+  display:block;width:100%;text-align:left;padding:11px 16px;font-size:13.5px;
+  background:none;border:none;cursor:pointer;color:var(--ink);
+}
+.menu button:active{background:#faf3e3}
+.menu button + button{border-top:1px solid var(--line)}
+
+.content{padding:14px 14px 0}
+
+/* ===== 汇总大卡 ===== */
+.hero{
+  background:var(--card);border-radius:18px;padding:20px 16px 14px;
+  box-shadow:0 6px 22px rgba(150,100,30,.10);
+}
+.hero-stats{display:flex;text-align:center}
+.hero-stats .hs{flex:1}
+.hs .ico{
+  width:42px;height:42px;border-radius:50%;margin:0 auto 7px;
+  display:flex;align-items:center;justify-content:center;font-size:19px;
+  box-shadow:inset 0 -3px 6px rgba(0,0,0,.06);
+}
+.hs .ico.p{background:#e9e6fb;color:#7a6fd0}
+.hs .ico.r{background:#fde3df;color:#d05a4e}
+.hs .ico.g{background:#faecc9;color:#c98a1e}
+.hs .num{font-size:23px;font-weight:800;color:var(--ink);letter-spacing:.5px;font-variant-numeric:tabular-nums}
+.hs .lab{font-size:11px;color:var(--ink3);margin-top:2px}
+.hero-facts{margin-top:14px;border-top:1px dashed var(--line);padding-top:11px}
+.fact{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:5px 0;font-size:12.5px}
+.fact .fl{color:var(--ink2);min-width:0}
+.fact .fl b{color:var(--gold-deep);font-weight:700;margin-left:4px}
+.fact .fr{flex:none;text-align:right;color:var(--ink2)}
+.fact .fr b{font-size:15px;color:var(--ink);font-variant-numeric:tabular-nums}
+.fact .fr span{display:block;font-size:11px;color:var(--ink3)}
+
+/* ===== 双统计卡 ===== */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:13px}
+.duo-card{border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(150,100,30,.10);background:#fff}
+.duo-card .dh{
+  background:linear-gradient(135deg,var(--g1),var(--g2));
+  text-align:center;font-weight:800;font-size:13.5px;color:#6b4a1f;
+  padding:8px 0;letter-spacing:2px;
+}
+.duo-card .db{padding:9px 13px 11px}
+.drow{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;font-size:12.5px}
+.drow .dl{color:var(--ink2)}
+.drow .dv{font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink);font-size:14px}
+.drow.hl .dv{color:var(--gold-deep)}
+
+/* ===== 卡池列表 ===== */
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin:20px 2px 10px}
+.sec-head .st{font-size:15px;font-weight:800;letter-spacing:1px;color:var(--ink)}
+.sec-head .sc{font-size:11.5px;color:var(--ink3)}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:11px}
+.chip{
+  padding:5px 13px;border-radius:20px;font-size:12px;cursor:pointer;border:none;
+  background:rgba(255,255,255,.65);color:var(--ink2);font-weight:500;
+}
+.chip.on{background:linear-gradient(135deg,var(--g1),var(--g2));color:#6b4a1f;font-weight:700;box-shadow:0 2px 8px rgba(180,120,30,.22)}
+
+.pool{
+  background:var(--card);border-radius:15px;padding:10px;margin-bottom:11px;
+  box-shadow:0 4px 16px rgba(150,100,30,.10);overflow:hidden;
+}
+.pool.archived{opacity:.66}
+.pool-main{display:flex;gap:11px;align-items:stretch;cursor:pointer}
+.thumb{
+  width:62px;flex:none;border-radius:10px;color:#fff;padding:8px 4px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  text-shadow:0 1px 3px rgba(80,40,0,.32);
+}
+.thumb.sp{background:linear-gradient(160deg,#f2c67e,#d68f2e)}
+.thumb.nm{background:linear-gradient(160deg,#b9c0d8,#8b96b8)}
+.thumb .t1{font-size:15px;font-weight:800;letter-spacing:1px;line-height:1.22;text-align:center}
+.thumb .t2{font-size:9.5px;opacity:.92}
+.pool-mid{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.pool-name{display:flex;align-items:center;gap:6px;margin-bottom:3px;flex-wrap:wrap}
+.pool-name .pn{font-size:15px;font-weight:800;letter-spacing:.5px}
+.mini-tag{flex:none;font-size:9.5px;padding:1px 7px;border-radius:10px;font-weight:700}
+.mini-tag.sp{background:#faecc9;color:#b97a1e}
+.mini-tag.nm{background:#e8ebf5;color:#6a769c}
+.mini-tag.arc{background:#eee9df;color:#9a8a72}
+.pool-metrics{display:flex;gap:16px}
+.pm .pv{font-size:15.5px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink)}
+.pm .pl{font-size:10.5px;color:var(--ink3)}
+.pm.gold .pv{color:var(--gold-deep)}
+.edit-btn{
+  flex:none;width:44px;border:none;border-radius:10px;cursor:pointer;color:#fff;
+  background:linear-gradient(160deg,#f2c67e,#d68f2e);
+  font-size:13px;font-weight:700;letter-spacing:2px;
+  writing-mode:horizontal-tb;box-shadow:inset 0 -2px 5px rgba(120,70,0,.18);
+}
+.edit-btn:active{filter:brightness(.95)}
+.pool-detail{border-top:1px dashed var(--line);margin-top:10px;padding-top:10px}
+.pd-h{font-size:11.5px;color:var(--ink3);font-weight:700;margin:2px 0 6px;letter-spacing:1px}
+.ag-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:10px}
+.ag-table th{text-align:right;color:var(--ink3);font-weight:500;padding:3px 6px;border-bottom:1px solid var(--line)}
+.ag-table th:first-child{text-align:left}
+.ag-table td{padding:5px 6px;border-bottom:1px solid #f7f0e0;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.ag-table td:first-child{text-align:left;font-weight:500}
+.ag-table tr:last-child td{border-bottom:none}
+.rec-list{max-height:250px;overflow:auto;border-radius:10px;background:#fdfaf3;padding:2px 0;margin-bottom:10px}
+.rec{display:flex;align-items:center;gap:7px;padding:7px 10px;font-size:12px;border-bottom:1px solid #f5eedd}
+.rec:last-child{border-bottom:none}
+.rec .dt{color:var(--ink3);flex:none;font-variant-numeric:tabular-nums}
+.rec .nm{flex:1;min-width:0;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rec .ct{flex:none;color:var(--ink2);font-variant-numeric:tabular-nums}
+.rec .del{flex:none;border:none;background:none;color:var(--ink3);font-size:16px;padding:0 3px;cursor:pointer}
+.rec .del:active{color:var(--red)}
+.pill{flex:none;font-size:9.5px;padding:1px 6px;border-radius:9px;font-weight:700}
+.pill.g{background:#faecc9;color:#b97a1e}
+.pill.s{background:#e9e6fb;color:#7a6fd0}
+.pill.b{background:#f6dff2;color:#b05696}
+.pill.hit{background:#e2f2e6;color:#4a8a5e}
+.pill.miss{background:#fde3df;color:#c4524a}
+.pool-acts{display:flex;gap:8px}
+.btn{
+  flex:1;padding:9px 0;border-radius:11px;border:none;font-size:13.5px;font-weight:700;cursor:pointer;
+  background:#f6efdd;color:var(--ink);letter-spacing:1px;
+}
+.btn:active{filter:brightness(.96)}
+.btn.gold{background:linear-gradient(135deg,var(--g1),var(--g2));color:#6b4a1f;box-shadow:0 3px 10px rgba(190,130,40,.28)}
+.btn.warn{color:var(--red);background:#fdeee9}
+.empty{
+  border:1.5px dashed #e0c896;border-radius:15px;padding:34px 16px;text-align:center;
+  color:var(--ink3);font-size:13px;background:rgba(255,255,255,.45);
+}
+
+/* ===== 弹窗 ===== */
+.mask{position:fixed;inset:0;background:rgba(40,28,10,.45);z-index:60;display:flex;align-items:flex-end;justify-content:center}
+.mask.hide{display:none}
+.modal{
+  background:#fffdf8;width:100%;max-width:440px;border-radius:20px 20px 0 0;
+  max-height:88vh;overflow:auto;padding-bottom:env(safe-area-inset-bottom);
+  animation:up .22s ease;
+}
+@keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+@media(min-width:500px){.mask{align-items:center}.modal{border-radius:20px}}
+.modal h3{margin:0;padding:17px 20px 13px;font-size:15.5px;text-align:center;border-bottom:1px solid var(--line);letter-spacing:1px}
+.modal .bd{padding:15px 20px 6px}
+.modal .ft{padding:10px 20px calc(16px + env(safe-area-inset-bottom));display:flex;gap:10px}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:12px;color:var(--ink2);margin-bottom:5px}
+.field .hint{font-size:11px;color:var(--ink3);margin-top:4px;line-height:1.5}
+input[type=text],input[type=number],input[type=date],input[type=password],select{
+  width:100%;padding:10px 12px;border:1px solid #e6d8bc;border-radius:11px;
+  background:#fff;font-size:14px;color:var(--ink);outline:none;
+}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,155,63,.15)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.seg{display:flex;gap:8px}
+.seg button{
+  flex:1;padding:10px 0;border-radius:11px;border:1.5px solid #e6d8bc;background:#fff;
+  font-size:13.5px;color:var(--ink2);cursor:pointer;font-weight:600;
+}
+.seg button.on{border-color:var(--gold);background:#fdf3de;color:var(--gold-deep)}
+.check{
+  display:flex;align-items:center;gap:9px;padding:11px 13px;border:1.5px solid #e6d8bc;
+  border-radius:11px;font-size:13.5px;cursor:pointer;
+}
+.check input{width:16px;height:16px;accent-color:var(--gold);cursor:pointer}
+.check.gold{border-color:#eed7a4;background:#fdf6e6}
+.info{
+  background:#fdf3de;border:1px solid #eed7a4;border-radius:11px;
+  padding:10px 13px;font-size:12.5px;color:#6b4a1f;margin-bottom:13px;line-height:1.6;
+}
+.info b{color:var(--gold-deep)}
+
+.toast{
+  position:fixed;left:50%;bottom:60px;transform:translateX(-50%) translateY(10px);
+  background:rgba(38,38,46,.94);color:#fff;padding:10px 22px;border-radius:22px;
+  font-size:13px;opacity:0;pointer-events:none;transition:.22s;z-index:99;white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <div class="topbar">
+    <span class="title">抽卡记录</span>
+    <div class="acts">
+      <button class="icon-btn" onclick="openPoolModal()">＋</button>
+      <button class="icon-btn" id="menuBtn" onclick="toggleMenu(event)">···</button>
+    </div>
+    <div class="menu" id="menu">
+      <button onclick="toggleMenu();syncToGitHub()">☁️ 上传到 GitHub</button>
+      <button onclick="toggleMenu();openSyncModal()">⚙️ 同步设置</button>
+      <button onclick="toggleMenu();exportJSON()">📤 导出备份</button>
+      <button onclick="toggleMenu();document.getElementById('importFile').click()">📥 导入备份</button>
+    </div>
+  </div>
+  <input type="file" id="importFile" accept=".json,application/json" style="display:none" onchange="importJSON(this)">
+
+  <div class="content">
+
+    <div class="hero">
+      <div class="hero-stats" id="heroStats"></div>
+      <div class="hero-facts" id="heroFacts"></div>
+    </div>
+
+    <div class="duo">
+      <div class="duo-card">
+        <div class="dh">普池统计</div>
+        <div class="db" id="normalStats"></div>
+      </div>
+      <div class="duo-card">
+        <div class="dh">UP池统计</div>
+        <div class="db" id="specialStats"></div>
+      </div>
+    </div>
+
+    <div class="sec-head">
+      <span class="st">我的卡池</span>
+      <span class="sc" id="poolCount"></span>
+    </div>
+    <div class="chips">
+      <button class="chip on" onclick="setFilter('status','all')" data-st="all">全部</button>
+      <button class="chip" onclick="setFilter('status','active')" data-st="active">进行中</button>
+      <button class="chip" onclick="setFilter('status','archived')" data-st="archived">已归档</button>
+      <button class="chip" onclick="setFilter('type','all')" data-tp="all">全部类型</button>
+      <button class="chip" onclick="setFilter('type','normal')" data-tp="normal">普池</button>
+      <button class="chip" onclick="setFilter('type','special')" data-tp="special">UP池</button>
+    </div>
+
+    <div id="pools"></div>
+  </div>
+</div>
+
+<!-- 卡池弹窗 -->
+<div class="mask hide" id="poolModal">
+  <div class="modal">
+    <h3 id="poolModalTitle">新增卡池</h3>
+    <div class="bd">
+      <div class="field">
+        <label>卡池名称</label>
+        <input type="text" id="pName" placeholder="如：限定招募·第一期">
+      </div>
+      <div class="field">
+        <label>卡池类型</label>
+        <div class="seg" id="pTypeSeg">
+          <button data-tp="normal" onclick="pickType('normal')">普通卡池</button>
+          <button data-tp="special" onclick="pickType('special')">特殊卡池（UP）</button>
+        </div>
+        <div class="hint">普通卡池统计密探抽取数与出金平均数；特殊卡池额外追踪当期 UP 与小保底不歪率。</div>
+      </div>
+      <div id="upFields" style="display:none">
+        <div class="info">特殊卡池规则：40 抽内必出 UP；若未出「当期 UP」则下一个保底为大保底，必出当期 UP。</div>
+        <div class="row2">
+          <div class="field"><label>当期 UP 密探 1</label><input type="text" id="pUp1" placeholder="密探名称"></div>
+          <div class="field"><label>当期 UP 密探 2</label><input type="text" id="pUp2" placeholder="密探名称"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ft">
+      <button class="btn" onclick="closeModal('poolModal')">取消</button>
+      <button class="btn gold" onclick="savePool()">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- 记录弹窗 -->
+<div class="mask hide" id="recModal">
+  <div class="modal">
+    <h3 id="recModalTitle">记录一次出金</h3>
+    <div class="bd">
+      <div class="info" id="recInfo"></div>
+      <div class="row2">
+        <div class="field">
+          <label>出金密探</label>
+          <input type="text" id="rAgent" list="agentList" placeholder="如：张仲景">
+          <datalist id="agentList"></datalist>
+        </div>
+        <div class="field">
+          <label>花费抽数</label>
+          <input type="number" id="rCost" min="1" step="1" value="40">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>日期</label><input type="date" id="rDate"></div>
+        <div class="field"><label>备注</label><input type="text" id="rNote" placeholder="选填"></div>
+      </div>
+      <div class="hint" style="margin-bottom:12px">
+        一条记录 = 一次出金，抽数填「距上次出金共抽了多少抽」。系统自动比对密探名与当期 UP：不同名即判为歪，下一个保底自动转为大保底。
+      </div>
+    </div>
+    <div class="ft">
+      <button class="btn" onclick="closeModal('recModal')">取消</button>
+      <button class="btn gold" onclick="saveRecord()">保存记录</button>
+    </div>
+  </div>
+</div>
+
+<!-- GitHub 同步弹窗 -->
+<div class="mask hide" id="syncModal">
+  <div class="modal">
+    <h3>GitHub 云备份</h3>
+    <div class="bd">
+      <div class="info" id="syncStatus">尚未配置</div>
+      <div class="field">
+        <label>仓库（owner/repo）</label>
+        <input type="text" id="ghRepo" placeholder="如：zhangsan/gacha-record">
+      </div>
+      <div class="row2">
+        <div class="field"><label>分支</label><input type="text" id="ghBranch" value="main"></div>
+        <div class="field"><label>备份文件路径</label><input type="text" id="ghPath" value="backup/gacha-data.json"></div>
+      </div>
+      <div class="field">
+        <label>个人访问令牌（PAT）</label>
+        <input type="password" id="ghToken" placeholder="github_pat_...">
+        <div class="hint">GitHub → Settings → Developer settings → Personal access tokens → Fine-grained token，只对这一个仓库勾选 <b>Contents: Read and write</b>。令牌仅保存在本机浏览器，不会写进导出的备份文件。</div>
+      </div>
+      <div class="field">
+        <label class="check"><input type="checkbox" id="ghAuto"> 每次记一笔后自动上传</label>
+      </div>
+    </div>
+    <div class="ft">
+      <button class="btn" onclick="closeModal('syncModal')">关闭</button>
+      <button class="btn" onclick="syncFromGitHub()">⬇ 恢复</button>
+      <button class="btn gold" onclick="saveSyncSettings();syncToGitHub()">⬆ 保存并上传</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ 存储 ============ */
+const LS = 'gacha-tracker-v1';
+let state = load();
+let filter = { status:'all', type:'all' };
+let editingPoolId = null, recPoolId = null, draftType = 'normal';
+const expanded = new Set();
+
+function load(){
+  try{
+    const raw = localStorage.getItem(LS);
+    if(raw){
+      const s = JSON.parse(raw);
+      if(s && Array.isArray(s.pools)) return { pools:s.pools, agentNames:s.agentNames||[] };
+    }
+  }catch(e){ console.warn('读取本地数据失败', e); }
+  return { pools:[], agentNames:[] };
+}
+function save(){ localStorage.setItem(LS, JSON.stringify(state)); }
+function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
+function today(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function n1(v){ return (Math.round(v*10)/10).toFixed(1); }
+
+/* ============ 统计 ============ */
+function chronological(p){
+  return [...p.records].sort((a,b)=> String(a.date||'').localeCompare(String(b.date||'')) || (a.ts-b.ts));
+}
+/* 名称比对：与当期 UP 之一同名即算没歪 */
+function isUpName(p, agent){
+  if(p.type!=='special') return false;
+  const a = (agent||'').trim();
+  if(!a) return false;
+  return (p.upAgents||[]).some(u => u && u.trim() === a);
+}
+/* 按时间顺序派生保底链：歪了 -> 下一个大保底；大保底后回到小保底 */
+function rowsOf(p){
+  let g = 'small';
+  return chronological(p).map(r => {
+    const hit = isUpName(p, r.agent);
+    const row = { r, hit, gr: g };
+    if(p.type==='special'){
+      g = (g === 'big') ? 'small' : (hit ? 'small' : 'big');
+    }
+    return row;
+  });
+}
+function stats(p){
+  const rows = rowsOf(p);
+  const sp = p.type==='special';
+  const total = rows.reduce((s,x)=> s + (Number(x.r.cost)||0), 0);
+  const goldCount = rows.length;
+  const small = rows.filter(x=> sp && x.gr==='small').length;
+  const hit = rows.filter(x=> sp && x.gr==='small' && x.hit).length;
+  const last = rows.length ? (Number(rows[rows.length-1].r.cost)||0) : 0;
+  let next = 'small';
+  if(sp && rows.length){
+    const l = rows[rows.length-1];
+    next = (l.gr==='big' || l.hit) ? 'small' : 'big';
+  }
+  return {
+    total, goldCount, avg: goldCount ? total/goldCount : 0,
+    small, hit, rate: small ? hit/small : 0,
+    big: rows.filter(x=> sp && x.gr==='big').length,
+    last, next
+  };
+}
+function agentAgg(p){
+  const map = new Map();
+  for(const x of rowsOf(p)){
+    const k = (x.r.agent||'').trim() || '（未填写）';
+    if(!map.has(k)) map.set(k, { name:k, copies:0, cost:0, up:0, off:0 });
+    const o = map.get(k);
+    o.copies += 1;
+    o.cost += Number(x.r.cost)||0;
+    if(p.type==='special'){ x.hit ? o.up++ : o.off++; }
+  }
+  return [...map.values()].sort((a,b)=> b.cost-a.cost || b.copies-a.copies);
+}
+/* 全局事实：花费抽数最多的密探 / UP池歪最多的密探 */
+function heroFacts(){
+  const costMap = new Map(), offMap = new Map();
+  for(const p of state.pools){
+    for(const x of rowsOf(p)){
+      const k = (x.r.agent||'').trim(); if(!k) continue;
+      costMap.set(k, (costMap.get(k)||0) + (Number(x.r.cost)||0));
+      if(p.type==='special' && !x.hit) offMap.set(k, (offMap.get(k)||0)+1);
+    }
+  }
+  const topCost = [...costMap.entries()].sort((a,b)=>b[1]-a[1])[0] || null;
+  const topOff  = [...offMap.entries()].sort((a,b)=>b[1]-a[1])[0] || null;
+  return { topCost, topOff };
+}
+
+/* ============ 渲染 ============ */
+function visiblePools(){
+  return state.pools.filter(p =>
+    (filter.status==='all' || p.status===filter.status) &&
+    (filter.type==='all' || p.type===filter.type));
+}
+
+function render(){
+  renderHero(); renderDuo(); renderPools(); renderAgentList();
+}
+
+function renderHero(){
+  const all = state.pools;
+  let total=0, golds=0;
+  for(const p of all){ const s=stats(p); total+=s.total; golds+=s.goldCount; }
+  const f = heroFacts();
+  document.getElementById('heroStats').innerHTML = `
+    <div class="hs"><div class="ico p">📜</div><div class="num">${total}</div><div class="lab">总抽取次数</div></div>
+    <div class="hs"><div class="ico r">🏅</div><div class="num">${golds}</div><div class="lab">总出金个数</div></div>
+    <div class="hs"><div class="ico g">🏆</div><div class="num">${golds?n1(total/golds):'—'}</div><div class="lab">平均出金次数</div></div>`;
+  document.getElementById('heroFacts').innerHTML = `
+    <div class="fact">
+      <span class="fl">抽取花费最多的密探<b>${f.topCost?esc(f.topCost[0]):'—'}</b></span>
+      <span class="fr"><b>${f.topCost?f.topCost[1]:0}</b><span>共抽出</span></span>
+    </div>
+    <div class="fact">
+      <span class="fl">UP池中歪出最多的密探<b>${f.topOff?esc(f.topOff[0]):'—'}</b></span>
+      <span class="fr"><b>${f.topOff?f.topOff[1]:0}</b><span>共歪了</span></span>
+    </div>`;
+}
+
+function renderDuo(){
+  const N = state.pools.filter(p=>p.type==='normal');
+  const S = state.pools.filter(p=>p.type==='special');
+  const agg = arr => {
+    let t=0,g=0,sm=0,ht=0;
+    for(const p of arr){ const s=stats(p); t+=s.total; g+=s.goldCount; sm+=s.small; ht+=s.hit; }
+    return {t,g,sm,ht};
+  };
+  const n = agg(N), s = agg(S);
+  document.getElementById('normalStats').innerHTML = `
+    <div class="drow"><span class="dl">卡池数</span><span class="dv">${N.length}</span></div>
+    <div class="drow"><span class="dl">总次数</span><span class="dv">${n.t}</span></div>
+    <div class="drow"><span class="dl">总出金数</span><span class="dv">${n.g}</span></div>
+    <div class="drow"><span class="dl">平均出金次数</span><span class="dv">${n.g?n1(n.t/n.g):'—'}</span></div>`;
+  document.getElementById('specialStats').innerHTML = `
+    <div class="drow"><span class="dl">卡池数</span><span class="dv">${S.length}</span></div>
+    <div class="drow"><span class="dl">总次数</span><span class="dv">${s.t}</span></div>
+    <div class="drow"><span class="dl">总出金数</span><span class="dv">${s.g}</span></div>
+    <div class="drow"><span class="dl">平均出金次数</span><span class="dv">${s.g?n1(s.t/s.g):'—'}</span></div>
+    <div class="drow hl"><span class="dl">小保底不歪比例</span><span class="dv">${s.sm?n1(s.ht/s.sm*100)+'%':'—'}</span></div>`;
+}
+
+function renderPools(){
+  const list = visiblePools();
+  document.getElementById('poolCount').textContent = `${list.length} / ${state.pools.length} 个卡池`;
+  const box = document.getElementById('pools');
+  if(!list.length){
+    box.innerHTML = `<div class="empty">还没有卡池<br><span style="font-size:11.5px">点击右上角「＋」创建普通卡池或 UP 池</span></div>`;
+    return;
+  }
+  box.innerHTML = list.map(poolCard).join('');
+}
+
+function poolCard(p){
+  const s = stats(p), open = expanded.has(p.id), sp = p.type==='special';
+  const title = sp ? (((p.upAgents[0]||'') + (p.upAgents[1]||'')).trim() || p.name) : p.name;
+  const avg = s.goldCount ? n1(s.avg) : '—';
+  /* 缩略图显示卡池名称，每两字一行，最多两行 */
+  const rawName = (p.name||'卡池').replace(/\s/g,'');
+  const thumbName = (rawName.match(/.{1,2}/g) || []).slice(0,2).map(esc).join('<br>');
+
+  let metrics = `
+    <div class="pm"><div class="pv">${s.total}</div><div class="pl">总次数</div></div>
+    <div class="pm gold"><div class="pv">${s.goldCount}</div><div class="pl">总出金</div></div>
+    <div class="pm gold"><div class="pv">${avg}</div><div class="pl">平均出金</div></div>`;
+  if(sp) metrics += `<div class="pm"><div class="pv" style="color:${s.small? (s.rate>=.5?'#4a8a5e':'#c4524a') : 'var(--ink)'}">${s.small?n1(s.rate*100)+'%':'—'}</div><div class="pl">不歪率</div></div>`;
+
+  let detail = '';
+  if(open){
+    const recs = rowsOf(p).slice().reverse();
+    detail = `
+    <div class="pool-detail">
+      <div class="pd-h">出金明细（${recs.length} 条${sp?` · 当期UP ${esc(p.upAgents[0]||'—')}·${esc(p.upAgents[1]||'—')}`:''}）</div>
+      <div class="rec-list" style="margin-bottom:12px">
+        ${recs.length ? recs.map(x=>`
+          <div class="rec">
+            <span class="dt">${esc((x.r.date||'').slice(5))}</span>
+            <span class="nm">${esc(x.r.agent||'（未填写）')}</span>
+            ${sp?`<span class="pill ${x.gr==='big'?'b':'s'}">${x.gr==='big'?'大保底':'小保底'}</span>`:''}
+            ${sp?`<span class="pill ${x.hit?'hit':'miss'}">${x.hit?'当期UP':'歪'}</span>`:''}
+            <span class="ct">${x.r.cost} 抽</span>
+            <button class="del" onclick="event.stopPropagation();delRecord('${p.id}','${x.r.id}')">×</button>
+          </div>`).join('') : `<div style="color:var(--ink3);font-size:12px;text-align:center;padding:14px">还没有记录，点「记一笔」开始</div>`}
+      </div>
+
+      <div class="pool-acts">
+        <button class="btn gold" onclick="event.stopPropagation();openRecModal('${p.id}')">记一笔</button>
+        <button class="btn" onclick="event.stopPropagation();toggleArchive('${p.id}')">${p.status==='archived'?'恢复':'归档'}</button>
+        <button class="btn warn" onclick="event.stopPropagation();delPool('${p.id}')">删除</button>
+      </div>
+    </div>`;
+  }
+
+  return `
+  <div class="pool ${p.status==='archived'?'archived':''}">
+    <div class="pool-main" onclick="toggleExpand('${p.id}')">
+      <div class="thumb ${sp?'sp':'nm'}">
+        <span class="t1">${thumbName}</span>
+      </div>
+      <div class="pool-mid">
+        <div class="pool-name">
+          <span class="pn">${esc(title)}</span>
+          <span class="mini-tag ${sp?'sp':'nm'}">${sp?'UP池':'普池'}</span>
+          ${p.status==='archived'?'<span class="mini-tag arc">已归档</span>':''}
+        </div>
+        <div class="pool-metrics">${metrics}</div>
+      </div>
+      <button class="edit-btn" onclick="event.stopPropagation();openPoolModal('${p.id}')">编辑</button>
+    </div>
+    ${detail}
+  </div>`;
+}
+
+function renderAgentList(){
+  document.getElementById('agentList').innerHTML =
+    state.agentNames.map(n=>`<option value="${esc(n)}"></option>`).join('');
+}
+
+/* ============ 交互 ============ */
+function toggleExpand(id){ expanded.has(id) ? expanded.delete(id) : expanded.add(id); render(); }
+function setFilter(k,v){ filter[k]=v; renderChips(); render(); }
+function renderChips(){
+  document.querySelectorAll('.chip').forEach(c=>{
+    if(c.dataset.st!==undefined) c.classList.toggle('on', c.dataset.st===filter.status);
+    if(c.dataset.tp!==undefined) c.classList.toggle('on', c.dataset.tp===filter.type);
+  });
+}
+function closeModal(id){ document.getElementById(id).classList.add('hide'); }
+function openMask(id){ document.getElementById(id).classList.remove('hide'); }
+function toggleMenu(e){
+  if(e) e.stopPropagation();
+  document.getElementById('menu').classList.toggle('show');
+}
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(()=> t.classList.remove('show'), 1900);
+}
+
+/* ---- 卡池 ---- */
+function pickType(t){
+  draftType = t;
+  document.querySelectorAll('#pTypeSeg button').forEach(b=> b.classList.toggle('on', b.dataset.tp===t));
+  document.getElementById('upFields').style.display = t==='special' ? '' : 'none';
+}
+function openPoolModal(id){
+  editingPoolId = id || null;
+  const p = id ? state.pools.find(x=>x.id===id) : null;
+  document.getElementById('poolModalTitle').textContent = p ? '编辑卡池' : '新增卡池';
+  document.getElementById('pName').value = p ? p.name : '';
+  document.getElementById('pUp1').value = p ? (p.upAgents[0]||'') : '';
+  document.getElementById('pUp2').value = p ? (p.upAgents[1]||'') : '';
+  pickType(p ? p.type : 'normal');
+  openMask('poolModal');
+  setTimeout(()=> document.getElementById('pName').focus(), 80);
+}
+function savePool(){
+  const name = document.getElementById('pName').value.trim();
+  if(!name){ toast('请填写卡池名称'); return; }
+  const up1 = document.getElementById('pUp1').value.trim();
+  const up2 = document.getElementById('pUp2').value.trim();
+  if(draftType==='special' && !up1 && !up2){ toast('特殊卡池请至少填写一位当期 UP 密探'); return; }
+
+  if(editingPoolId){
+    const p = state.pools.find(x=>x.id===editingPoolId);
+    p.name = name; p.type = draftType; p.upAgents = [up1, up2];
+    if(!Array.isArray(p.records)) p.records = [];
+    toast('卡池已更新');
+  }else{
+    state.pools.unshift({
+      id: uid(), name, type: draftType,
+      upAgents: draftType==='special' ? [up1, up2] : ['',''],
+      status:'active', records:[], createdAt: today()
+    });
+    expanded.add(state.pools[0].id);
+    toast('卡池已创建');
+  }
+  save(); closeModal('poolModal'); render();
+}
+function delPool(id){
+  const p = state.pools.find(x=>x.id===id);
+  if(!p) return;
+  if(!confirm(`确定删除卡池「${p.name}」？该卡池的 ${p.records.length} 条记录会一并删除，且无法恢复。`)) return;
+  state.pools = state.pools.filter(x=>x.id!==id);
+  save(); render(); toast('已删除');
+}
+function toggleArchive(id){
+  const p = state.pools.find(x=>x.id===id);
+  p.status = p.status==='archived' ? 'active' : 'archived';
+  save(); render(); toast(p.status==='archived' ? '已归档' : '已恢复');
+}
+
+/* ---- 记录 ---- */
+function openRecModal(poolId){
+  recPoolId = poolId;
+  const p = state.pools.find(x=>x.id===poolId);
+  const isSpecial = p.type==='special';
+  const s = stats(p);
+  document.getElementById('recModalTitle').textContent = `记录一次出金 · ${p.name}`;
+  document.getElementById('rAgent').value = '';
+  document.getElementById('rCost').value = 40;
+  document.getElementById('rNote').value = '';
+  document.getElementById('rDate').value = today();
+  document.getElementById('recInfo').innerHTML = isSpecial
+    ? `当期 UP：<b>${esc(p.upAgents[0]||'—')} · ${esc(p.upAgents[1]||'—')}</b><br>本次保底：<b>${s.next==='big'?'大保底（必出当期UP）':'小保底'}</b>`
+    : `普通卡池 · 已记录 <b>${s.goldCount}</b> 次出金，平均 <b>${s.goldCount?n1(s.avg):'—'}</b> 抽`;
+  openMask('recModal');
+  setTimeout(()=> document.getElementById('rAgent').focus(), 80);
+}
+function saveRecord(){
+  const p = state.pools.find(x=>x.id===recPoolId);
+  if(!p) return;
+  const agent = document.getElementById('rAgent').value.trim();
+  const cost = parseInt(document.getElementById('rCost').value, 10);
+  const date = document.getElementById('rDate').value || today();
+  const note = document.getElementById('rNote').value.trim();
+  if(!agent){ toast('请填写出金密探名称'); return; }
+  if(!cost || cost < 1){ toast('请填写花费抽数'); return; }
+
+  p.records.push({ id:uid(), agent, cost, isGold:true, date, note, ts: Date.now() });
+
+  if(!state.agentNames.includes(agent)) state.agentNames.unshift(agent);
+  state.agentNames = state.agentNames.slice(0, 60);
+  if(!expanded.has(p.id)) expanded.add(p.id);
+
+  save(); closeModal('recModal'); render();
+  const ok = p.type!=='special' || isUpName(p, agent);
+  toast(ok ? '已记录 ✓' : '已记录，本次歪了 → 下一保底为大保底');
+  if(sync.auto) syncToGitHub(true);
+}
+function delRecord(poolId, recId){
+  const p = state.pools.find(x=>x.id===poolId);
+  if(!p) return;
+  p.records = p.records.filter(r=> r.id!==recId);
+  save(); render(); toast('记录已删除');
+}
+
+/* ---- 备份 ---- */
+function exportJSON(){
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type:'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `抽卡记录备份-${today()}.json`;
+  a.click();
+  setTimeout(()=> URL.revokeObjectURL(a.href), 1000);
+  toast('已导出备份文件');
+}
+function importJSON(input){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try{
+      const data = JSON.parse(e.target.result);
+      if(!data || !Array.isArray(data.pools)) throw new Error('格式不正确');
+      if(!confirm(`将导入 ${data.pools.length} 个卡池，覆盖当前全部数据。确定继续？`)) { input.value=''; return; }
+      state = { pools: data.pools, agentNames: data.agentNames || [] };
+      save(); render(); toast('导入成功');
+    }catch(err){ alert('导入失败：文件格式不正确'); }
+    input.value = '';
+  };
+  reader.readAsText(file);
+}
+
+/* ============ GitHub 云备份 ============ */
+const LS_SYNC = 'gacha-sync-v1';
+let sync = loadSync();
+
+function loadSync(){
+  try{ return JSON.parse(localStorage.getItem(LS_SYNC)) || {}; }catch(e){ return {}; }
+}
+function saveSync(){ localStorage.setItem(LS_SYNC, JSON.stringify(sync)); }
+function ghConf(){
+  return {
+    repo:   (sync.repo   || '').trim(),
+    branch: (sync.branch || 'main').trim(),
+    path:   (sync.path   || 'backup/gacha-data.json').trim(),
+    token:  (sync.token  || '').trim()
+  };
+}
+function ghReady(){ const c = ghConf(); return c.repo.indexOf('/') > 0 && !!c.token; }
+function ghPath(p){ return String(p).split('/').filter(Boolean).map(encodeURIComponent).join('/'); }
+function b64enc(str){
+  const bytes = new TextEncoder().encode(str);
+  let bin = ''; for(const b of bytes) bin += String.fromCharCode(b);
+  return btoa(bin);
+}
+function b64dec(b64){
+  const bin = atob(String(b64).replace(/\s/g,''));
+  const bytes = new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+async function ghApi(url, opts){
+  const c = ghConf();
+  const res = await fetch(url, Object.assign({
+    headers: {
+      Authorization: 'Bearer ' + c.token,
+      Accept: 'application/vnd.github+json',
+      'Content-Type': 'application/json'
+    }
+  }, opts || {}));
+  if(!res.ok){
+    let msg = res.status + ' ' + res.statusText;
+    try{ const j = await res.json(); if(j && j.message) msg = j.message; }catch(e){}
+    const e = new Error(msg); e.status = res.status; throw e;
+  }
+  return res.json();
+}
+function syncUrl(c){ return `https://api.github.com/repos/${c.repo}/contents/${ghPath(c.path)}`; }
+function syncStatusText(){
+  if(!ghReady()) return '尚未配置：填写仓库名（owner/repo）和访问令牌后即可云备份。';
+  const t = sync.lastPush ? new Date(sync.lastPush).toLocaleString('zh-CN') : '从未上传';
+  return `仓库：<b>${esc(sync.repo)}</b>（${esc(sync.branch)}）<br>文件：<b>${esc(sync.path)}</b><br>上次上传：<b>${esc(t)}</b>`;
+}
+function openSyncModal(){
+  document.getElementById('ghRepo').value   = sync.repo   || '';
+  document.getElementById('ghBranch').value = sync.branch || 'main';
+  document.getElementById('ghPath').value   = sync.path   || 'backup/gacha-data.json';
+  document.getElementById('ghToken').value  = sync.token  || '';
+  document.getElementById('ghAuto').checked = !!sync.auto;
+  document.getElementById('syncStatus').innerHTML = syncStatusText();
+  openMask('syncModal');
+}
+function saveSyncSettings(){
+  sync.repo   = document.getElementById('ghRepo').value.trim();
+  sync.branch = document.getElementById('ghBranch').value.trim() || 'main';
+  sync.path   = document.getElementById('ghPath').value.trim() || 'backup/gacha-data.json';
+  sync.token  = document.getElementById('ghToken').value.trim();
+  sync.auto   = document.getElementById('ghAuto').checked;
+  saveSync();
+  document.getElementById('syncStatus').innerHTML = syncStatusText();
+  toast('设置已保存');
+}
+async function syncToGitHub(silent){
+  if(!ghReady()){
+    if(!silent){ toast('请先完成同步设置'); openSyncModal(); }
+    return;
+  }
+  const c = ghConf();
+  const url = syncUrl(c);
+  toast('正在上传…');
+  try{
+    let sha = null;
+    try{ const cur = await ghApi(url + '?ref=' + encodeURIComponent(c.branch)); sha = cur && cur.sha; }catch(e){ /* 首次上传，文件不存在 */ }
+    const body = { message: '更新抽卡记录备份 ' + today(), content: b64enc(JSON.stringify(state, null, 2)), branch: c.branch };
+    if(sha) body.sha = sha;
+    await ghApi(url, { method:'PUT', body: JSON.stringify(body) });
+    sync.lastPush = new Date().toISOString();
+    saveSync();
+    document.getElementById('syncStatus').innerHTML = syncStatusText();
+    toast('已上传到 GitHub ✓');
+  }catch(err){
+    toast('上传失败');
+    if(!silent){
+      let tip = '请检查：仓库名是否为 owner/repo 格式、令牌是否有该仓库 Contents 的读写权限、分支名是否正确。';
+      if(err.status === 404) tip = '仓库或路径未找到：请确认仓库存在且令牌有权限访问它。';
+      if(err.status === 401 || err.status === 403) tip = '令牌无效或权限不足：请重新生成 PAT，并勾选 Contents: Read and write。';
+      alert('上传到 GitHub 失败：\n' + err.message + '\n\n' + tip);
+    }
+  }
+}
+async function syncFromGitHub(){
+  if(!ghReady()){ toast('请先完成同步设置'); openSyncModal(); return; }
+  const c = ghConf();
+  toast('正在拉取…');
+  try{
+    const cur = await ghApi(syncUrl(c) + '?ref=' + encodeURIComponent(c.branch));
+    const data = JSON.parse(b64dec(cur.content || ''));
+    if(!data || !Array.isArray(data.pools)) throw new Error('备份文件格式不正确');
+    if(!confirm(`将从 GitHub 恢复 ${data.pools.length} 个卡池，覆盖当前本机数据。确定继续？`)) return;
+    state = { pools: data.pools, agentNames: data.agentNames || [] };
+    save(); render();
+    document.getElementById('syncStatus').innerHTML = syncStatusText();
+    toast('已从 GitHub 恢复 ✓');
+  }catch(err){
+    toast('恢复失败');
+    alert('从 GitHub 恢复失败：\n' + (err.message || err));
+  }
+}
+
+/* ---- 初始化 ---- */
+document.addEventListener('click', e => {
+  const menu = document.getElementById('menu');
+  if(menu.classList.contains('show') && !e.target.closest('#menu')) menu.classList.remove('show');
+});
+document.querySelectorAll('.mask').forEach(m=>{
+  m.addEventListener('click', e => { if(e.target===m) m.classList.add('hide'); });
+});
+document.addEventListener('keydown', e => {
+  if(e.key==='Escape'){ document.querySelectorAll('.mask').forEach(m=> m.classList.add('hide')); document.getElementById('menu').classList.remove('show'); }
+});
+render();
+</script>
+</body>
+</html>
