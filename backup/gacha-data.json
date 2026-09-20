@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9vsow5357n0",
+      "name": "形气复生",
+      "type": "special",
+      "upAgents": [
+        "张鲁",
+        "张修"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vsv9xxnoht",
+          "agent": "张鲁",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912690773
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vq9a5si5o1",
       "name": "天道不逾",
       "type": "special",
@@ -9,7 +32,7 @@
         "张角"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vqq6wqj2r7",
@@ -73,6 +96,15 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789912640013
+        },
+        {
+          "id": "mu9vrxiau6kir",
+          "agent": "张仲景",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912647010
         }
       ],
       "createdAt": "2026-09-20"
@@ -255,6 +287,7 @@
     }
   ],
   "agentNames": [
+    "张鲁",
     "干吉",
     "张仲景",
     "徐庶",
