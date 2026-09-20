@@ -1,6 +1,47 @@
 {
   "pools": [
     {
+      "id": "mu9vuhag4yrfh",
+      "name": "织囊画诗",
+      "type": "special",
+      "upAgents": [
+        "张闿",
+        "张飞"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vunhd8966a",
+          "agent": "张闿",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912773985
+        },
+        {
+          "id": "mu9vutwe4bjo9",
+          "agent": "张鲁",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912782302
+        },
+        {
+          "id": "mu9vuzkkcarlr",
+          "agent": "张飞",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912789652
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vt9bjg5sbc",
       "name": "绮花隐豹",
       "type": "special",
@@ -9,7 +50,7 @@
         "刘豹"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vtfqtttowd",
@@ -328,6 +369,8 @@
     }
   ],
   "agentNames": [
+    "张飞",
+    "张闿",
     "刘豹",
     "张郃",
     "张鲁",
