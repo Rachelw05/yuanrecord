@@ -1,6 +1,47 @@
 {
   "pools": [
     {
+      "id": "mu9wtjonnqge1",
+      "name": "绣衣天下",
+      "type": "normal",
+      "upAgents": [
+        "",
+        ""
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wts7xc19lb",
+          "agent": "鲁肃",
+          "cost": 10,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914413085
+        },
+        {
+          "id": "mu9wty2jbv09q",
+          "agent": "杨修",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914420667
+        },
+        {
+          "id": "mu9wu3b4w390r",
+          "agent": "吕蒙",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914427456
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wsrkk6u5c6",
       "name": "燕金募秀",
       "type": "normal",
@@ -19,6 +60,15 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914374812
+        },
+        {
+          "id": "mu9wt3bh0xjqs",
+          "agent": "祢衡",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914380813
         }
       ],
       "createdAt": "2026-09-20"
@@ -1605,6 +1655,9 @@
     }
   ],
   "agentNames": [
+    "吕蒙",
+    "杨修",
+    "鲁肃",
     "法正",
     "华佗",
     "庞德",
@@ -1661,9 +1714,6 @@
     "徐庶",
     "蔡琰",
     "荀彧",
-    "庞统",
-    "令狐茂",
-    "周瑜",
-    "孙权"
+    "庞统"
   ]
 }
