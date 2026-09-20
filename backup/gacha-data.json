@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9wjxorsbby5",
+      "name": "形谍成光",
+      "type": "special",
+      "upAgents": [
+        "马腾",
+        "庞羲"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wkg4rtiusm",
+          "agent": "马腾",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913977515
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wipmavfx2w",
       "name": "白日昭只",
       "type": "special",
@@ -9,7 +32,7 @@
         "董白"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wiug2pfowe",
@@ -19,6 +42,24 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913902754
+        },
+        {
+          "id": "mu9wj1gd8bisg",
+          "agent": "葛洪",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913911837
+        },
+        {
+          "id": "mu9wjba4j3c4t",
+          "agent": "董白",
+          "cost": 17,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913924572
         }
       ],
       "createdAt": "2026-09-20"
@@ -1146,6 +1187,9 @@
     }
   ],
   "agentNames": [
+    "马腾",
+    "董白",
+    "葛洪",
     "张昭",
     "士燮",
     "程昱",
