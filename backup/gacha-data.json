@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9w4lnk6230d",
+      "name": "金相玉质",
+      "type": "special",
+      "upAgents": [
+        "黄月英",
+        "孔融"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9w4q8cpriqb",
+          "agent": "黄月英",
+          "cost": 2,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913244108
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9w2oxl3jh4c",
       "name": "云雨滂润",
       "type": "special",
@@ -9,7 +32,7 @@
         "诸葛瑾"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9w2sciv5i5o",
@@ -19,6 +42,33 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913153538
+        },
+        {
+          "id": "mu9w2ygyse14g",
+          "agent": "诸葛瑾",
+          "cost": 16,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913161474
+        },
+        {
+          "id": "mu9w3fexqmvug",
+          "agent": "诸葛诞",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913183433
+        },
+        {
+          "id": "mu9w3j9vs73w8",
+          "agent": "诸葛瑾",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913188435
         }
       ],
       "createdAt": "2026-09-20"
@@ -615,6 +665,8 @@
     }
   ],
   "agentNames": [
+    "黄月英",
+    "诸葛瑾",
     "诸葛诞",
     "夏侯惇",
     "荀攸",
