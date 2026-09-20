@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9wipmavfx2w",
+      "name": "白日昭只",
+      "type": "special",
+      "upAgents": [
+        "张昭",
+        "董白"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wiug2pfowe",
+          "agent": "张昭",
+          "cost": 12,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913902754
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wgzehlvjmy",
       "name": "契阔谈宴",
       "type": "special",
@@ -9,7 +32,7 @@
         "士燮"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wh5fzyzabk",
@@ -19,6 +42,51 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913823695
+        },
+        {
+          "id": "mu9whi6j9q86f",
+          "agent": "程昱",
+          "cost": 10,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913840203
+        },
+        {
+          "id": "mu9whmrrs8pc6",
+          "agent": "士燮",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913846151
+        },
+        {
+          "id": "mu9whrs628riq",
+          "agent": "士燮",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913852646
+        },
+        {
+          "id": "mu9whx41ybqun",
+          "agent": "孙权",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913859553
+        },
+        {
+          "id": "mu9wi4iphszqc",
+          "agent": "士燮",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913869153
         }
       ],
       "createdAt": "2026-09-20"
@@ -1078,6 +1146,8 @@
     }
   ],
   "agentNames": [
+    "张昭",
+    "士燮",
     "程昱",
     "朱然",
     "张绣",
