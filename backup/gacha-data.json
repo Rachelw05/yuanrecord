@@ -1,4 +1,29 @@
 {
-  "pools": [],
-  "agentNames": []
+  "pools": [
+    {
+      "id": "mu9uv8c1rh1gv",
+      "name": "弓箭江东",
+      "type": "special",
+      "upAgents": [
+        "孙尚香",
+        "孙权"
+      ],
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9uvkcs7a5pl",
+          "agent": "孙尚香",
+          "cost": 4037,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789911136972
+        }
+      ],
+      "createdAt": "2026-09-20"
+    }
+  ],
+  "agentNames": [
+    "孙尚香"
+  ]
 }
