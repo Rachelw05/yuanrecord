@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9vlw1bhm9a2",
+      "name": "长生之术",
+      "type": "special",
+      "upAgents": [
+        "令狐茂",
+        "葛洪"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vmmpbmnsfl",
+          "agent": "令狐茂",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912399727
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9uxd3emtrj7",
       "name": "九门磔攘",
       "type": "special",
@@ -82,6 +105,7 @@
     }
   ],
   "agentNames": [
+    "令狐茂",
     "周瑜",
     "孙权",
     "吕蒙",
