@@ -1,6 +1,61 @@
 {
   "pools": [
     {
+      "id": "mu9vyj0perfl9",
+      "name": "暮燕翻雷",
+      "type": "special",
+      "upAgents": [
+        "虞翻",
+        "张燕"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vyn0vi5tzr",
+          "agent": "张燕",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912960015
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
+      "id": "mu9vxrzzct83l",
+      "name": "击金鸣鼓",
+      "type": "special",
+      "upAgents": [
+        "甘宁",
+        "甄宓"
+      ],
+      "pending": 0,
+      "status": "archived",
+      "records": [
+        {
+          "id": "mu9vxvxg64x29",
+          "agent": "甘宁",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912924900
+        },
+        {
+          "id": "mu9vy272u4wv4",
+          "agent": "甄宓",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912933022
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vx28ajygst",
       "name": "彀弓衔刃",
       "type": "special",
@@ -9,7 +64,7 @@
         "太史慈"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vx6ypxjesg",
@@ -19,6 +74,15 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789912892545
+        },
+        {
+          "id": "mu9vxd3q72vir",
+          "agent": "黄盖",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912900502
         }
       ],
       "createdAt": "2026-09-20"
@@ -460,6 +524,9 @@
     }
   ],
   "agentNames": [
+    "张燕",
+    "甄宓",
+    "甘宁",
     "黄盖",
     "戏学",
     "张邈",
