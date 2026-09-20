@@ -1,6 +1,52 @@
 {
   "pools": [
     {
+      "id": "mu9wrc8vn5qz9",
+      "name": "王侯秉德",
+      "type": "special",
+      "upAgents": [
+        "郭女王",
+        "庞德"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wrjpexic7z",
+          "agent": "庞统",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914308738
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
+      "id": "mu9wqx4j97lg8",
+      "name": "却风凌月",
+      "type": "special",
+      "upAgents": [
+        "黄月英",
+        "凌统"
+      ],
+      "pending": 0,
+      "status": "archived",
+      "records": [
+        {
+          "id": "mu9wr0ozonuqe",
+          "agent": "黄月英",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914284099
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wp592q9qaw",
       "name": "桓桓先征",
       "type": "special",
@@ -9,7 +55,7 @@
         "吕布"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wpaur2xvh5",
@@ -104,7 +150,7 @@
         "黄盖"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wowr0cevr6",
