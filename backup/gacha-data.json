@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9vztta9cqzi",
+      "name": "壑林邀月",
+      "type": "special",
+      "upAgents": [
+        "荀攸",
+        "夏侯惇"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vzynv41go8",
+          "agent": "荀攸",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913021755
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vyj0perfl9",
       "name": "暮燕翻雷",
       "type": "special",
@@ -9,7 +32,7 @@
         "张燕"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vyn0vi5tzr",
@@ -19,6 +42,33 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789912960015
+        },
+        {
+          "id": "mu9vyzh0tcktj",
+          "agent": "虞翻",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912976148
+        },
+        {
+          "id": "mu9vz4kjm6tjr",
+          "agent": "张燕",
+          "cost": 22,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912982755
+        },
+        {
+          "id": "mu9vz9jpbs9g4",
+          "agent": "张燕",
+          "cost": 34,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912989205
         }
       ],
       "createdAt": "2026-09-20"
@@ -524,6 +574,8 @@
     }
   ],
   "agentNames": [
+    "荀攸",
+    "虞翻",
     "张燕",
     "甄宓",
     "甘宁",
