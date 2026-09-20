@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9vx28ajygst",
+      "name": "彀弓衔刃",
+      "type": "special",
+      "upAgents": [
+        "黄盖",
+        "太史慈"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vx6ypxjesg",
+          "agent": "黄盖",
+          "cost": 15,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912892545
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vvb36p0nhj",
       "name": "欺天罔地",
       "type": "special",
@@ -9,7 +32,7 @@
         "戏学"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vvoj3418ze",
@@ -46,6 +69,24 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789912842370
+        },
+        {
+          "id": "mu9vwazniu1nl",
+          "agent": "张邈",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912851107
+        },
+        {
+          "id": "mu9vwgbxft1dy",
+          "agent": "戏学",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912858029
         }
       ],
       "createdAt": "2026-09-20"
@@ -59,7 +100,7 @@
         "张飞"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vunhd8966a",
@@ -419,6 +460,8 @@
     }
   ],
   "agentNames": [
+    "黄盖",
+    "戏学",
     "张邈",
     "张飞",
     "张闿",
