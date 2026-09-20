@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9vq9a5si5o1",
+      "name": "天道不逾",
+      "type": "special",
+      "upAgents": [
+        "张仲景",
+        "张角"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vqq6wqj2r7",
+          "agent": "张仲景",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912590872
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vpfyb6oaad",
       "name": "弹剑酿花",
       "type": "special",
@@ -9,7 +32,7 @@
         "徐庶"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vpou38pr1o",
@@ -19,6 +42,15 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789912542459
+        },
+        {
+          "id": "mu9vpu7nsjfqk",
+          "agent": "徐庶",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912549427
         }
       ],
       "createdAt": "2026-09-20"
@@ -169,6 +201,8 @@
     }
   ],
   "agentNames": [
+    "张仲景",
+    "徐庶",
     "蔡琰",
     "荀彧",
     "庞统",
