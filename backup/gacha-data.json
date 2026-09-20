@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9wgzehlvjmy",
+      "name": "契阔谈宴",
+      "type": "special",
+      "upAgents": [
+        "程昱",
+        "士燮"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wh5fzyzabk",
+          "agent": "程昱",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913823695
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wfrd3i3gc9",
       "name": "天弧封狼",
       "type": "special",
@@ -9,7 +32,7 @@
         "朱然"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wfvpcx6eom",
@@ -28,6 +51,42 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913773806
+        },
+        {
+          "id": "mu9wg6mq1ox1v",
+          "agent": "朱然",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913778578
+        },
+        {
+          "id": "mu9wgarulvplv",
+          "agent": "朱然",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913783946
+        },
+        {
+          "id": "mu9wgfrvwqu7p",
+          "agent": "张绣",
+          "cost": 28,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913790427
+        },
+        {
+          "id": "mu9wgk2fqh2oc",
+          "agent": "朱然",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913795991
         }
       ],
       "createdAt": "2026-09-20"
@@ -1019,6 +1078,7 @@
     }
   ],
   "agentNames": [
+    "程昱",
     "朱然",
     "张绣",
     "刘繇",
