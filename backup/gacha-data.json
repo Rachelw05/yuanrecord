@@ -1,6 +1,38 @@
 {
   "pools": [
     {
+      "id": "mu9wfrd3i3gc9",
+      "name": "天弧封狼",
+      "type": "special",
+      "upAgents": [
+        "张绣",
+        "朱然"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wfvpcx6eom",
+          "agent": "张绣",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913764416
+        },
+        {
+          "id": "mu9wg2y6krjk9",
+          "agent": "朱然",
+          "cost": 35,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913773806
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9weyg474g66",
       "name": "蛇蟒之蛰",
       "type": "special",
@@ -9,7 +41,7 @@
         "刘繇"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wf24jxx3pi",
@@ -19,6 +51,24 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913726083
+        },
+        {
+          "id": "mu9wf7ti2yzx3",
+          "agent": "刘繇",
+          "cost": 34,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913733462
+        },
+        {
+          "id": "mu9wfcge43c9v",
+          "agent": "满宠",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913739470
         }
       ],
       "createdAt": "2026-09-20"
@@ -969,6 +1019,9 @@
     }
   ],
   "agentNames": [
+    "朱然",
+    "张绣",
+    "刘繇",
     "满宠",
     "诸葛亮",
     "司马徽",
