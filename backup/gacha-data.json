@@ -19,6 +19,78 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914203955
+        },
+        {
+          "id": "mu9wpghovwh8r",
+          "agent": "甄宓",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914211260
+        },
+        {
+          "id": "mu9wpkmtlsosf",
+          "agent": "吕布",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914216629
+        },
+        {
+          "id": "mu9wpo7zo9ryg",
+          "agent": "吕布",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914221279
+        },
+        {
+          "id": "mu9wpt36i93g7",
+          "agent": "曹丕",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914227586
+        },
+        {
+          "id": "mu9wpy4ulkrup",
+          "agent": "曹丕",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914234126
+        },
+        {
+          "id": "mu9wq4rtjlq9r",
+          "agent": "陆逊",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914242729
+        },
+        {
+          "id": "mu9wq9ywt7oo0",
+          "agent": "吕布",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914249464
+        },
+        {
+          "id": "mu9wqf4c75ovy",
+          "agent": "曹丕",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914256140
         }
       ],
       "createdAt": "2026-09-20"
@@ -1405,6 +1477,8 @@
     }
   ],
   "agentNames": [
+    "陆逊",
+    "吕布",
     "曹丕",
     "夏侯渊",
     "刘璋",
