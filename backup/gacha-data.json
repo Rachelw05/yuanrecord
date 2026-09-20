@@ -19,6 +19,51 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913626251
+        },
+        {
+          "id": "mu9wd12q3guir",
+          "agent": "诸葛亮",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913631410
+        },
+        {
+          "id": "mu9wd7enra8t4",
+          "agent": "司马徽",
+          "cost": 25,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913639615
+        },
+        {
+          "id": "mu9wdnaru0mn0",
+          "agent": "黄盖",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913660211
+        },
+        {
+          "id": "mu9wdtbmu05st",
+          "agent": "司马徽",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913668018
+        },
+        {
+          "id": "mu9wdz3y3rkem",
+          "agent": "张鲁",
+          "cost": 7,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913675518
         }
       ],
       "createdAt": "2026-09-20"
@@ -874,6 +919,7 @@
     }
   ],
   "agentNames": [
+    "诸葛亮",
     "司马徽",
     "祢衡",
     "蒯越",
