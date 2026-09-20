@@ -1,6 +1,61 @@
 {
   "pools": [
     {
+      "id": "mu9wsrkk6u5c6",
+      "name": "燕金募秀",
+      "type": "normal",
+      "upAgents": [
+        "",
+        ""
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wsyos6puna",
+          "agent": "周瑜",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914374812
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
+      "id": "mu9wsa97l0x37",
+      "name": "言简理直",
+      "type": "special",
+      "upAgents": [
+        "法正",
+        "简雍"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wse6hmntqf",
+          "agent": "华佗",
+          "cost": 40,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914348233
+        },
+        {
+          "id": "mu9wsj0td232k",
+          "agent": "法正",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914354509
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wrc8vn5qz9",
       "name": "王侯秉德",
       "type": "special",
@@ -9,7 +64,7 @@
         "庞德"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wrjpexic7z",
@@ -19,6 +74,33 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914308738
+        },
+        {
+          "id": "mu9wrnh6kpisw",
+          "agent": "郭女王",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914313626
+        },
+        {
+          "id": "mu9wrrd0p96iv",
+          "agent": "郭女王",
+          "cost": 3,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914318660
+        },
+        {
+          "id": "mu9wrvdmtdrmu",
+          "agent": "庞德",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914323866
         }
       ],
       "createdAt": "2026-09-20"
@@ -1523,6 +1605,10 @@
     }
   ],
   "agentNames": [
+    "法正",
+    "华佗",
+    "庞德",
+    "郭女王",
     "陆逊",
     "吕布",
     "曹丕",
@@ -1578,8 +1664,6 @@
     "庞统",
     "令狐茂",
     "周瑜",
-    "孙权",
-    "吕蒙",
-    "孙尚香"
+    "孙权"
   ]
 }
