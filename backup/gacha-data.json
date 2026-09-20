@@ -289,6 +289,69 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914628921
+        },
+        {
+          "id": "mu9wyk0ri8861",
+          "agent": "夏侯惇",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914635739
+        },
+        {
+          "id": "mu9wyp9iscf9o",
+          "agent": "蔡琰",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914642534
+        },
+        {
+          "id": "mu9wytnu67ten",
+          "agent": "凌统",
+          "cost": 22,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914648234
+        },
+        {
+          "id": "mu9wyzgtq4jpf",
+          "agent": "张燕",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914655757
+        },
+        {
+          "id": "mu9wz59j2onap",
+          "agent": "满宠",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914663271
+        },
+        {
+          "id": "mu9wzaus0r298",
+          "agent": "张角",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914670516
+        },
+        {
+          "id": "mu9wzgqos4d1x",
+          "agent": "张飞",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914678144
         }
       ],
       "createdAt": "2026-09-20"
@@ -1907,6 +1970,7 @@
     }
   ],
   "agentNames": [
+    "蔡琰",
     "孙尚香",
     "荀彧",
     "郭嘉",
@@ -1965,7 +2029,6 @@
     "张邈",
     "张飞",
     "张闿",
-    "刘豹",
-    "张郃"
+    "刘豹"
   ]
 }
