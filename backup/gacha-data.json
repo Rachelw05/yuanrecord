@@ -19,6 +19,60 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913977515
+        },
+        {
+          "id": "mu9wknbhuyq7k",
+          "agent": "庞羲",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913986829
+        },
+        {
+          "id": "mu9wkr1n60tmb",
+          "agent": "庞羲",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913991659
+        },
+        {
+          "id": "mu9wl22qvhh3c",
+          "agent": "虞翻",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914005954
+        },
+        {
+          "id": "mu9wl6t4k2wd2",
+          "agent": "庞羲",
+          "cost": 8,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914012088
+        },
+        {
+          "id": "mu9wlfm7ap77f",
+          "agent": "贾诩",
+          "cost": 12,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914023503
+        },
+        {
+          "id": "mu9wljohnuxsq",
+          "agent": "庞羲",
+          "cost": 29,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914028769
         }
       ],
       "createdAt": "2026-09-20"
@@ -1187,6 +1241,8 @@
     }
   ],
   "agentNames": [
+    "贾诩",
+    "庞羲",
     "马腾",
     "董白",
     "葛洪",
