@@ -217,6 +217,78 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914577185
+        },
+        {
+          "id": "mu9wxfm7lvu4j",
+          "agent": "诸葛瑾",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914583375
+        },
+        {
+          "id": "mu9wxldu7yg8g",
+          "agent": "荀彧",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914590850
+        },
+        {
+          "id": "mu9wxqlef9b47",
+          "agent": "陆逊",
+          "cost": 27,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914597602
+        },
+        {
+          "id": "mu9wxw4dn1evs",
+          "agent": "董奉",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914604765
+        },
+        {
+          "id": "mu9wy0guhzrmr",
+          "agent": "张飞",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914610398
+        },
+        {
+          "id": "mu9wy5d8qy5va",
+          "agent": "凌统",
+          "cost": 18,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914616748
+        },
+        {
+          "id": "mu9wya66rhi43",
+          "agent": "孙尚香",
+          "cost": 12,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914622974
+        },
+        {
+          "id": "mu9wyerdmfap2",
+          "agent": "张辽",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914628921
         }
       ],
       "createdAt": "2026-09-20"
@@ -1835,6 +1907,8 @@
     }
   ],
   "agentNames": [
+    "孙尚香",
+    "荀彧",
     "郭嘉",
     "张角",
     "王粲",
@@ -1892,8 +1966,6 @@
     "张飞",
     "张闿",
     "刘豹",
-    "张郃",
-    "张鲁",
-    "干吉"
+    "张郃"
   ]
 }
