@@ -1,6 +1,52 @@
 {
   "pools": [
     {
+      "id": "mu9wp592q9qaw",
+      "name": "桓桓先征",
+      "type": "special",
+      "upAgents": [
+        "曹丕",
+        "吕布"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wpaur2xvh5",
+          "agent": "曹丕",
+          "cost": 13,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914203955
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
+      "id": "mu9wotvxyupg0",
+      "name": "奉天华盖",
+      "type": "special",
+      "upAgents": [
+        "董奉",
+        "黄盖"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wowr0cevr6",
+          "agent": "董奉",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914185676
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wo1b61oc9o",
       "name": "珠源玉水",
       "type": "special",
@@ -9,7 +55,7 @@
         "夏侯渊"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wo4yemywmy",
@@ -19,6 +65,33 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914149654
+        },
+        {
+          "id": "mu9woacz69mtr",
+          "agent": "夏侯渊",
+          "cost": 29,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914156659
+        },
+        {
+          "id": "mu9wods3usk9a",
+          "agent": "刘璋",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914161091
+        },
+        {
+          "id": "mu9wohcofbbuc",
+          "agent": "刘璋",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914165720
         }
       ],
       "createdAt": "2026-09-20"
@@ -1332,6 +1405,8 @@
     }
   ],
   "agentNames": [
+    "曹丕",
+    "夏侯渊",
     "刘璋",
     "张辽",
     "程普",
