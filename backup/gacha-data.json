@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9vpfyb6oaad",
+      "name": "弹剑酿花",
+      "type": "special",
+      "upAgents": [
+        "蔡琰",
+        "徐庶"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vpou38pr1o",
+          "agent": "蔡琰",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912542459
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vnr6d2he3r",
       "name": "谈香展骥",
       "type": "special",
@@ -9,7 +32,7 @@
         "荀彧"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vnyxjmfbpj",
@@ -19,6 +42,24 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789912462231
+        },
+        {
+          "id": "mu9vo2v1ry3zz",
+          "agent": "庞统",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912467325
+        },
+        {
+          "id": "mu9vo8tee1hy1",
+          "agent": "荀彧",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912475042
         }
       ],
       "createdAt": "2026-09-20"
@@ -128,6 +169,8 @@
     }
   ],
   "agentNames": [
+    "蔡琰",
+    "荀彧",
     "庞统",
     "令狐茂",
     "周瑜",
