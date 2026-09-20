@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9wo1b61oc9o",
+      "name": "珠源玉水",
+      "type": "special",
+      "upAgents": [
+        "刘璋",
+        "夏侯渊"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wo4yemywmy",
+          "agent": "刘璋",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914149654
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wm5h3i774v",
       "name": "铁弦千钧",
       "type": "special",
@@ -8,8 +31,8 @@
         "钟繇",
         "程普"
       ],
-      "pending": 0,
-      "status": "active",
+      "pending": 3,
+      "status": "archived",
       "records": [
         {
           "id": "mu9wm9p5s6lwj",
@@ -37,6 +60,33 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914076371
+        },
+        {
+          "id": "mu9wmp9s4cwez",
+          "agent": "程普",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914082672
+        },
+        {
+          "id": "mu9wnf50yuu7n",
+          "agent": "程普",
+          "cost": 28,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914116196
+        },
+        {
+          "id": "mu9wnjcg1aram",
+          "agent": "钟繇",
+          "cost": 19,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914121648
         }
       ],
       "createdAt": "2026-09-20"
@@ -1282,6 +1332,7 @@
     }
   ],
   "agentNames": [
+    "刘璋",
     "张辽",
     "程普",
     "钟繇",
