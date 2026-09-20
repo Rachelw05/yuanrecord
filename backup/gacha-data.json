@@ -19,6 +19,60 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913419400
+        },
+        {
+          "id": "mu9w8m149gcsz",
+          "agent": "曹植",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913425288
+        },
+        {
+          "id": "mu9w8u79jr9av",
+          "agent": "曹植",
+          "cost": 31,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913435878
+        },
+        {
+          "id": "mu9w90gov7x7c",
+          "agent": "董奉",
+          "cost": 21,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913443992
+        },
+        {
+          "id": "mu9w95z7eatfj",
+          "agent": "郭解",
+          "cost": 40,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913451139
+        },
+        {
+          "id": "mu9w99q8umgpe",
+          "agent": "曹植",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913456000
+        },
+        {
+          "id": "mu9waggchip22",
+          "agent": "张鲁",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913511372
         }
       ],
       "createdAt": "2026-09-20"
@@ -747,6 +801,8 @@
     }
   ],
   "agentNames": [
+    "郭解",
+    "曹植",
     "董奉",
     "凌统",
     "安期",
