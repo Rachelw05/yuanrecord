@@ -132,6 +132,37 @@ body{
 .pm .pv{font-size:15.5px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink)}
 .pm .pl{font-size:10.5px;color:var(--ink3)}
 .pm.gold .pv{color:var(--gold-deep)}
+/* 距下次保底进度条 */
+.pity-line{
+  margin-top:5px;display:flex;align-items:center;gap:5px;flex-wrap:wrap;
+  font-size:11px;color:var(--ink2);line-height:1.3;
+}
+.pity-line b{font-size:13px;font-weight:800;color:#3f7d52;font-variant-numeric:tabular-nums}
+.pity-line.warn b{color:#c4524a}
+.pl-tag{
+  font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:9px;
+  background:#e6f2ea;color:#3f7d52;
+}
+.pity-line.warn .pl-tag{background:#fbe9e7;color:#c4524a}
+.pl-sub{font-size:10px;color:var(--ink3)}
+.pity-box{
+  display:flex;gap:10px;align-items:stretch;background:#fdf6e6;
+  border:1px solid #eed7a4;border-radius:10px;padding:9px 11px;margin-bottom:12px;
+}
+.pb-edit{
+  flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  border-right:1px dashed #e6d3a6;padding-right:10px;
+}
+.pb-edit label{font-size:9.5px;color:var(--ink3);white-space:nowrap}
+.pb-edit input{
+  width:56px;text-align:center;font-size:16px;font-weight:800;color:var(--gold-deep);
+  padding:3px 4px;border:1px solid #e6d3a6;border-radius:7px;background:#fff;
+  font-variant-numeric:tabular-nums;
+}
+.pb-edit span{font-size:9.5px;color:var(--ink3)}
+.pb-info{font-size:11.5px;color:var(--ink2);line-height:1.6}
+.pb-info b{color:var(--gold-deep);font-size:13px;font-variant-numeric:tabular-nums}
+.pb-tip{font-size:10px;color:var(--ink3)}
 .edit-btn{
   flex:none;width:44px;border:none;border-radius:10px;cursor:pointer;color:#fff;
   background:linear-gradient(160deg,#f2c67e,#d68f2e);
@@ -169,6 +200,7 @@ body{
 .btn:active{filter:brightness(.96)}
 .btn.gold{background:linear-gradient(135deg,var(--g1),var(--g2));color:#6b4a1f;box-shadow:0 3px 10px rgba(190,130,40,.28)}
 .btn.warn{color:var(--red);background:#fdeee9}
+.ver{text-align:center;font-size:11px;color:var(--ink3);margin:24px 0 6px;letter-spacing:.5px}
 .empty{
   border:1.5px dashed #e0c896;border-radius:15px;padding:34px 16px;text-align:center;
   color:var(--ink3);font-size:13px;background:rgba(255,255,255,.45);
@@ -214,6 +246,27 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,
 }
 .info b{color:var(--gold-deep)}
 
+/* 折叠教程 */
+.guide{border:1px solid var(--line);border-radius:11px;background:#fffdf7;margin:6px 0 14px;overflow:hidden}
+.guide summary{
+  padding:11px 13px;font-size:12.5px;font-weight:700;color:var(--gold-deep);
+  cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px;
+}
+.guide summary::-webkit-details-marker{display:none}
+.guide summary:before{content:"▸";transition:.18s;display:inline-block}
+.guide[open] summary:before{transform:rotate(90deg)}
+.guide-body{padding:0 14px 13px;font-size:12.5px;color:#5c4a34;line-height:1.65}
+.guide-body ol,.guide-body ul{margin:2px 0 0;padding-left:19px}
+.guide-body li{margin:4px 0}
+.g-title{font-weight:800;color:var(--ink);margin:12px 0 3px;font-size:12.5px}
+.g-title:first-child{margin-top:0}
+.g-note{background:#fbf3e2;border-radius:7px;padding:7px 10px;margin:7px 0;font-size:12px;color:#6b4a1f}
+.g-note a{color:var(--gold-deep);font-weight:700;text-decoration:underline}
+.g-warn{color:#b0562f}
+.guide-body code{
+  background:#f4ece0;border-radius:4px;padding:1px 5px;font-size:11.5px;
+  font-family:ui-monospace,Menlo,Consolas,monospace;word-break:break-all;
+}
 .toast{
   position:fixed;left:50%;bottom:60px;transform:translateX(-50%) translateY(10px);
   background:rgba(38,38,46,.94);color:#fff;padding:10px 22px;border-radius:22px;
@@ -272,6 +325,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,
     </div>
 
     <div id="pools"></div>
+    <div class="ver">版本 v5 · 2026-09-20（新增垫抽 / 距保底计数）</div>
   </div>
 </div>
 
@@ -298,6 +352,11 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,
           <div class="field"><label>当期 UP 密探 1</label><input type="text" id="pUp1" placeholder="密探名称"></div>
           <div class="field"><label>当期 UP 密探 2</label><input type="text" id="pUp2" placeholder="密探名称"></div>
         </div>
+      </div>
+      <div class="field">
+        <label>垫抽数（距上次出金已抽）</label>
+        <input type="number" id="pPending" min="0" max="40" step="1" value="0">
+        <div class="hint">还没出金、已经抽掉的抽数（0～40）。它会<b>计入本池总抽数</b>，并算出「距下次保底还需 40 − 垫抽数」抽。记一笔出金后会自动归零。</div>
       </div>
     </div>
     <div class="ft">
@@ -356,11 +415,60 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,
       <div class="field">
         <label>个人访问令牌（PAT）</label>
         <input type="password" id="ghToken" placeholder="github_pat_...">
-        <div class="hint">GitHub → Settings → Developer settings → Personal access tokens → Fine-grained token，只对这一个仓库勾选 <b>Contents: Read and write</b>。令牌仅保存在本机浏览器，不会写进导出的备份文件。</div>
+        <div class="hint">令牌只保存在本机浏览器，不会写进导出的备份文件，也不会上传给别人。</div>
       </div>
       <div class="field">
         <label class="check"><input type="checkbox" id="ghAuto"> 每次记一笔后自动上传</label>
       </div>
+
+      <details class="guide">
+        <summary>第一次用？点开看完整步骤（含令牌怎么申请）</summary>
+        <div class="guide-body">
+          <p class="g-title">第 1 步：申请访问令牌（只需做一次）</p>
+          <p class="g-note">嫌一步步点麻烦，<a href="https://github.com/settings/personal-access-tokens/new?name=gacha-backup&expires_in=365" target="_blank" rel="noopener">点这个链接直接打开创建页</a>（名称和有效期已预填），然后从下面第 4 步接着做。</p>
+          <p class="g-note">找不到下面说的按钮？直接跳到最底部的<b>「方案 B：用经典令牌」</b>，两下搞定。</p>
+          <ol>
+            <li>电脑浏览器登录 <b>github.com</b>，点右上角头像 → <b>Settings</b>。</li>
+            <li>左侧菜单拉到最底部 → <b>Developer settings</b> → <b>Personal access tokens</b> → <b>Fine-grained tokens</b> → <b>Generate new token</b>。<br><span class="g-warn">注意：别点进 "Tokens (classic)"，那是另一种，界面不一样。</span></li>
+            <li>Token name 填 <code>gacha-backup</code>；Expiration 选有效期（最长 1 年）。</li>
+            <li><b>Resource owner</b> 选你自己的账号。</li>
+            <li><b>Repository access</b> 选 <b>Only select repositories</b> → 在下面的 "Selected repositories" 下拉里<b>勾选要存备份的那个仓库</b>。</li>
+            <li><b>关键一步</b>：往下找到 <b>Permissions</b> 区域 —— 现在的新版界面不会直接列出权限，要<b>点「+ Add permissions」按钮</b>（就在 Permissions 标题旁边/下方），在弹出的列表里找到 <b>Contents</b>，点它右侧下拉选 <b>Read and write</b>。<br><span class="g-warn">如果你的界面上看到的是 "Repository permissions" 这个可展开的标题，那就点开它，在展开的权限清单里找 Contents，把默认的 No access 改成 Read and write —— 两种界面都行，目标是同一个。</span></li>
+            <li>其他权限一律不用动（保持 No access）。点 <b>Generate token</b>。</li>
+            <li>把生成的 <code>github_pat_...</code> 复制好 —— <b>它只显示这一次</b>，关掉就没了。</li>
+          </ol>
+          <p class="g-title">方案 B：用经典令牌（更简单，权限给得宽一些）</p>
+          <ol>
+            <li>Settings → Developer settings → Personal access tokens → <b>Tokens (classic)</b> → <b>Generate new token (classic)</b>。</li>
+            <li>Note 填 <code>gacha-backup</code>，Expiration 选个期限。</li>
+            <li>在那一大排复选框里，<b>只勾第一个 <code>repo</code></b>（它的中文说明是「Full control of private repositories」，勾上父项会自动勾上子项）。其他都不勾。</li>
+            <li>拉到底点 <b>Generate token</b>，复制 <code>ghp_...</code> 开头的那串。</li>
+            <li>回到上面「第 2 步」照样填，令牌框里粘贴这串 <code>ghp_</code> 的即可，用法完全一样。</li>
+          </ol>
+          <p class="g-note">区别：Fine-grained 只授权某一个仓库，更安全；Classic 的 <code>repo</code> 会给到你<b>所有</b>仓库的读写权，但对个人自用来说影响不大，图省事就用它。</p>
+          <p class="g-title">第 2 步：在这里填写</p>
+          <ol>
+            <li><b>仓库</b>：填 <code>用户名/仓库名</code>，斜杠格式，<b>不是网址</b>。例如 <code>zhangsan/gacha-record</code>。</li>
+            <li><b>分支</b>：新仓库一般填 <code>main</code>（2020 年以前建的仓库可能是 <code>master</code>，在 GitHub 仓库首页能看到）。</li>
+            <li><b>备份文件路径</b>：默认 <code>backup/gacha-data.json</code>，文件夹不存在会自动建，一般不用改。</li>
+            <li><b>令牌</b>：粘贴刚复制的那串。</li>
+            <li>想省事就勾上「每次记一笔后自动上传」。</li>
+            <li>点右下 <b>⬆ 保存并上传</b>。</li>
+          </ol>
+          <p class="g-title">怎么确认成功了</p>
+          <ul>
+            <li>按钮上方会出现「上次上传：某年某月某日 xx:xx」。</li>
+            <li>去 GitHub 仓库里看，会多出一个 <code>backup/gacha-data.json</code>，点开能看到 pools 数组。</li>
+          </ul>
+          <p class="g-title">报错怎么办</p>
+          <ul>
+            <li><b>401 Bad credentials</b>：令牌复制不全、已过期或被删除了，重新生成一个。</li>
+            <li><b>403 / 权限不足</b>：令牌的 Contents 没设成 Read and write，或者没勾选这个仓库。</li>
+            <li><b>404 Not Found</b>：仓库名填错，或令牌没授权到这个仓库。</li>
+            <li>上传失败<b>不影响本机数据</b>，本地记录一直都在。</li>
+          </ul>
+        </div>
+      </details>
     </div>
     <div class="ft">
       <button class="btn" onclick="closeModal('syncModal')">关闭</button>
@@ -419,10 +527,15 @@ function rowsOf(p){
     return row;
   });
 }
+const PITY = 40;   /* 保底抽数：40 抽内必出金 */
 function stats(p){
   const rows = rowsOf(p);
   const sp = p.type==='special';
-  const total = rows.reduce((s,x)=> s + (Number(x.r.cost)||0), 0);
+  const spent = rows.reduce((s,x)=> s + (Number(x.r.cost)||0), 0);
+  /* 垫抽：距上次出金已抽、但还没出金的抽数（0~40） */
+  const pending = Math.max(0, Math.min(PITY, Number(p.pending)||0));
+  const total = spent + pending;
+  const need = Math.max(0, PITY - pending);        /* 距下次保底还需几抽 */
   const goldCount = rows.length;
   const small = rows.filter(x=> sp && x.gr==='small').length;
   const hit = rows.filter(x=> sp && x.gr==='small' && x.hit).length;
@@ -433,6 +546,7 @@ function stats(p){
     next = (l.gr==='big' || l.hit) ? 'small' : 'big';
   }
   return {
+    spent, pending, need, proj: total + need,
     total, goldCount, avg: goldCount ? total/goldCount : 0,
     small, hit, rate: small ? hit/small : 0,
     big: rows.filter(x=> sp && x.gr==='big').length,
@@ -543,12 +657,33 @@ function poolCard(p){
     <div class="pm gold"><div class="pv">${s.goldCount}</div><div class="pl">总出金</div></div>
     <div class="pm gold"><div class="pv">${avg}</div><div class="pl">平均出金</div></div>`;
   if(sp) metrics += `<div class="pm"><div class="pv" style="color:${s.small? (s.rate>=.5?'#4a8a5e':'#c4524a') : 'var(--ink)'}">${s.small?n1(s.rate*100)+'%':'—'}</div><div class="pl">不歪率</div></div>`;
+  /* 距下次保底还需几抽：40 - 已垫抽数 */
+  const pity = `<div class="pity-line${s.need<=5?' warn':''}">
+      <span class="pl-tag">距保底</span>
+      <b>${s.need}</b> 抽
+      <span class="pl-sub">· 已垫 ${s.pending}/${PITY}，出货时总抽数 ≈ ${s.proj}</span>
+    </div>`;
 
   let detail = '';
   if(open){
     const recs = rowsOf(p).slice().reverse();
     detail = `
     <div class="pool-detail">
+      <div class="pd-h">保底进度</div>
+      <div class="pity-box">
+        <div class="pb-edit" onclick="event.stopPropagation()">
+          <label>距上次出金已抽</label>
+          <input type="number" min="0" max="${PITY}" step="1" value="${s.pending}"
+                 onchange="setPending('${p.id}', this.value)">
+          <span>/ ${PITY}</span>
+        </div>
+        <div class="pb-info">
+          距下次保底还需 <b>${s.need}</b> 抽<br>
+          出金时总抽数将达 <b>${s.proj}</b>（当前 ${s.total} + 还需 ${s.need}）<br>
+          <span class="pb-tip">已垫的 ${s.pending} 抽已计入本池总抽数与平均出金</span>
+        </div>
+      </div>
+
       <div class="pd-h">出金明细（${recs.length} 条${sp?` · 当期UP ${esc(p.upAgents[0]||'—')}·${esc(p.upAgents[1]||'—')}`:''}）</div>
       <div class="rec-list" style="margin-bottom:12px">
         ${recs.length ? recs.map(x=>`
@@ -583,6 +718,7 @@ function poolCard(p){
           ${p.status==='archived'?'<span class="mini-tag arc">已归档</span>':''}
         </div>
         <div class="pool-metrics">${metrics}</div>
+        ${pity}
       </div>
       <button class="edit-btn" onclick="event.stopPropagation();openPoolModal('${p.id}')">编辑</button>
     </div>
@@ -629,6 +765,7 @@ function openPoolModal(id){
   document.getElementById('pName').value = p ? p.name : '';
   document.getElementById('pUp1').value = p ? (p.upAgents[0]||'') : '';
   document.getElementById('pUp2').value = p ? (p.upAgents[1]||'') : '';
+  document.getElementById('pPending').value = p ? (Number(p.pending)||0) : 0;
   pickType(p ? p.type : 'normal');
   openMask('poolModal');
   setTimeout(()=> document.getElementById('pName').focus(), 80);
@@ -640,15 +777,19 @@ function savePool(){
   const up2 = document.getElementById('pUp2').value.trim();
   if(draftType==='special' && !up1 && !up2){ toast('特殊卡池请至少填写一位当期 UP 密探'); return; }
 
+  const pendRaw = parseInt(document.getElementById('pPending').value, 10);
+  const pend = isNaN(pendRaw) ? 0 : Math.max(0, Math.min(PITY, pendRaw));
+
   if(editingPoolId){
     const p = state.pools.find(x=>x.id===editingPoolId);
-    p.name = name; p.type = draftType; p.upAgents = [up1, up2];
+    p.name = name; p.type = draftType; p.upAgents = [up1, up2]; p.pending = pend;
     if(!Array.isArray(p.records)) p.records = [];
     toast('卡池已更新');
   }else{
     state.pools.unshift({
       id: uid(), name, type: draftType,
       upAgents: draftType==='special' ? [up1, up2] : ['',''],
+      pending: pend,
       status:'active', records:[], createdAt: today()
     });
     expanded.add(state.pools[0].id);
@@ -668,6 +809,17 @@ function toggleArchive(id){
   p.status = p.status==='archived' ? 'active' : 'archived';
   save(); render(); toast(p.status==='archived' ? '已归档' : '已恢复');
 }
+/* 手改垫抽数：0~40，改动后所有统计自动重算 */
+function setPending(id, val){
+  const p = state.pools.find(x=>x.id===id);
+  if(!p) return;
+  let n = parseInt(val, 10);
+  if(isNaN(n) || n < 0) n = 0;
+  if(n > PITY) n = PITY;
+  p.pending = n;
+  save(); render();
+  toast(n >= PITY ? '已达保底，再抽必出金' : `已记录垫抽 ${n} 抽 · 距保底还需 ${PITY-n} 抽`);
+}
 
 /* ---- 记录 ---- */
 function openRecModal(poolId){
@@ -677,12 +829,16 @@ function openRecModal(poolId){
   const s = stats(p);
   document.getElementById('recModalTitle').textContent = `记录一次出金 · ${p.name}`;
   document.getElementById('rAgent').value = '';
-  document.getElementById('rCost').value = 40;
+  const pend = Math.max(0, Math.min(PITY, Number(p.pending)||0));
+  document.getElementById('rCost').value = pend > 0 ? pend : 40;
   document.getElementById('rNote').value = '';
   document.getElementById('rDate').value = today();
-  document.getElementById('recInfo').innerHTML = isSpecial
+  const pendTip = pend > 0
+    ? `<br><b style="color:#c4524a">已自动带入垫抽 ${pend} 抽</b>，请再加到本次出货为止的总抽数（例如垫了 ${pend} 抽、又抽 ${PITY-pend} 抽出货，就填 ${PITY}）。`
+    : '';
+  document.getElementById('recInfo').innerHTML = (isSpecial
     ? `当期 UP：<b>${esc(p.upAgents[0]||'—')} · ${esc(p.upAgents[1]||'—')}</b><br>本次保底：<b>${s.next==='big'?'大保底（必出当期UP）':'小保底'}</b>`
-    : `普通卡池 · 已记录 <b>${s.goldCount}</b> 次出金，平均 <b>${s.goldCount?n1(s.avg):'—'}</b> 抽`;
+    : `普通卡池 · 已记录 <b>${s.goldCount}</b> 次出金，平均 <b>${s.goldCount?n1(s.avg):'—'}</b> 抽`) + pendTip;
   openMask('recModal');
   setTimeout(()=> document.getElementById('rAgent').focus(), 80);
 }
@@ -697,6 +853,7 @@ function saveRecord(){
   if(!cost || cost < 1){ toast('请填写花费抽数'); return; }
 
   p.records.push({ id:uid(), agent, cost, isGold:true, date, note, ts: Date.now() });
+  p.pending = 0;   /* 已出货，垫抽清零 */
 
   if(!state.agentNames.includes(agent)) state.agentNames.unshift(agent);
   state.agentNames = state.agentNames.slice(0, 60);
