@@ -1,6 +1,47 @@
 {
   "pools": [
     {
+      "id": "mu9wm5h3i774v",
+      "name": "铁弦千钧",
+      "type": "special",
+      "upAgents": [
+        "钟繇",
+        "程普"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wm9p5s6lwj",
+          "agent": "钟繇",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914062489
+        },
+        {
+          "id": "mu9wmfdy1na8t",
+          "agent": "程普",
+          "cost": 10,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914069862
+        },
+        {
+          "id": "mu9wmker0bws8",
+          "agent": "张辽",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914076371
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wjxorsbby5",
       "name": "形谍成光",
       "type": "special",
@@ -8,8 +49,8 @@
         "马腾",
         "庞羲"
       ],
-      "pending": 0,
-      "status": "active",
+      "pending": 1,
+      "status": "archived",
       "records": [
         {
           "id": "mu9wkg4rtiusm",
@@ -1241,6 +1282,9 @@
     }
   ],
   "agentNames": [
+    "张辽",
+    "程普",
+    "钟繇",
     "贾诩",
     "庞羲",
     "马腾",
