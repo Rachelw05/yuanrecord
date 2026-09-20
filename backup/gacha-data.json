@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9vnr6d2he3r",
+      "name": "谈香展骥",
+      "type": "special",
+      "upAgents": [
+        "庞统",
+        "荀彧"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vnyxjmfbpj",
+          "agent": "庞统",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912462231
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vlw1bhm9a2",
       "name": "长生之术",
       "type": "special",
@@ -9,7 +32,7 @@
         "葛洪"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vmmpbmnsfl",
@@ -31,7 +54,7 @@
         "周瑜",
         "干吉"
       ],
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9uxkobkwx35",
@@ -53,7 +76,7 @@
         "孙尚香",
         "孙权"
       ],
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9uvrme8nhof",
@@ -105,6 +128,7 @@
     }
   ],
   "agentNames": [
+    "庞统",
     "令狐茂",
     "周瑜",
     "孙权",
