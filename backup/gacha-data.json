@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9wcrilm63es",
+      "name": "英徽弥亮",
+      "type": "special",
+      "upAgents": [
+        "司马徽",
+        "诸葛亮"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wcx3fvimbe",
+          "agent": "司马徽",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913626251
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wb36vsit0y",
       "name": "风兴云蒸",
       "type": "special",
@@ -9,7 +32,7 @@
         "祢衡"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wbcr1ycorl",
@@ -28,6 +51,15 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913560460
+        },
+        {
+          "id": "mu9wbsy8a8mm6",
+          "agent": "祢衡",
+          "cost": 35,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913574224
         }
       ],
       "createdAt": "2026-09-20"
@@ -842,6 +874,8 @@
     }
   ],
   "agentNames": [
+    "司马徽",
+    "祢衡",
     "蒯越",
     "郭解",
     "曹植",
