@@ -1,6 +1,56 @@
 {
   "pools": [
     {
+      "id": "mu9vvb36p0nhj",
+      "name": "欺天罔地",
+      "type": "special",
+      "upAgents": [
+        "张邈",
+        "戏学"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9vvoj3418ze",
+          "agent": "张邈",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912821999
+        },
+        {
+          "id": "mu9vvto3jbncs",
+          "agent": "张邈",
+          "cost": 8,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912828659
+        },
+        {
+          "id": "mu9vvyihxw2md",
+          "agent": "张邈",
+          "cost": 19,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912834937
+        },
+        {
+          "id": "mu9vw48yqv3w3",
+          "agent": "张仲景",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789912842370
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vuhag4yrfh",
       "name": "织囊画诗",
       "type": "special",
@@ -369,6 +419,7 @@
     }
   ],
   "agentNames": [
+    "张邈",
     "张飞",
     "张闿",
     "刘豹",
