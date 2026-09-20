@@ -352,6 +352,78 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914678144
+        },
+        {
+          "id": "mu9wzm1bdtyev",
+          "agent": "张邈",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914685007
+        },
+        {
+          "id": "mu9wzr97eov23",
+          "agent": "满宠",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914691771
+        },
+        {
+          "id": "mu9wzvoe298e8",
+          "agent": "徐庶",
+          "cost": 28,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914697502
+        },
+        {
+          "id": "mu9x011wi1ocb",
+          "agent": "王粲",
+          "cost": 3,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914704468
+        },
+        {
+          "id": "mu9x05x4x2bis",
+          "agent": "蒯越",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914710776
+        },
+        {
+          "id": "mu9x0ad58w2ug",
+          "agent": "陆逊",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914716537
+        },
+        {
+          "id": "mu9x0edwhd4s6",
+          "agent": "郭解",
+          "cost": 40,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914721748
+        },
+        {
+          "id": "mu9x0iia8fvxx",
+          "agent": "董白",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789914727090
         }
       ],
       "createdAt": "2026-09-20"
@@ -1970,6 +2042,7 @@
     }
   ],
   "agentNames": [
+    "徐庶",
     "蔡琰",
     "孙尚香",
     "荀彧",
@@ -2028,7 +2101,6 @@
     "戏学",
     "张邈",
     "张飞",
-    "张闿",
-    "刘豹"
+    "张闿"
   ]
 }
