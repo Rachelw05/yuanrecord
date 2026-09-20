@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9w8aer8x1m6",
+      "name": "谨司天英",
+      "type": "special",
+      "upAgents": [
+        "曹植",
+        "董奉"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9w8hhk188s7",
+          "agent": "董奉",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913419400
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9w5zu8pauuy",
       "name": "腾陵张胆",
       "type": "special",
@@ -9,7 +32,7 @@
         "安期"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9w63chjatg6",
@@ -19,6 +42,24 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913307761
+        },
+        {
+          "id": "mu9w66xg8bq1i",
+          "agent": "安期",
+          "cost": 33,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913312404
+        },
+        {
+          "id": "mu9w6ckzinc59",
+          "agent": "凌统",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913319731
         }
       ],
       "createdAt": "2026-09-20"
@@ -706,6 +747,8 @@
     }
   ],
   "agentNames": [
+    "董奉",
+    "凌统",
     "安期",
     "孔融",
     "黄月英",
