@@ -1,6 +1,38 @@
 {
   "pools": [
     {
+      "id": "mu9wb36vsit0y",
+      "name": "风兴云蒸",
+      "type": "special",
+      "upAgents": [
+        "蒯越",
+        "祢衡"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wbcr1ycorl",
+          "agent": "蒯越",
+          "cost": 2,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913553229
+        },
+        {
+          "id": "mu9wbibwt92y1",
+          "agent": "张飞",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913560460
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9w8aer8x1m6",
       "name": "谨司天英",
       "type": "special",
@@ -9,7 +41,7 @@
         "董奉"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9w8hhk188s7",
@@ -73,6 +105,15 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913511372
+        },
+        {
+          "id": "mu9wannp4hqyw",
+          "agent": "曹植",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913520709
         }
       ],
       "createdAt": "2026-09-20"
@@ -801,6 +842,7 @@
     }
   ],
   "agentNames": [
+    "蒯越",
     "郭解",
     "曹植",
     "董奉",
