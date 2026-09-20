@@ -18,12 +18,50 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789911136972
+        },
+        {
+          "id": "mu9uvrme8nhof",
+          "agent": "孙尚香",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789911146390
+        },
+        {
+          "id": "mu9uw46p1cmd3",
+          "agent": "吕蒙",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789911162673
+        },
+        {
+          "id": "mu9uwaygar0sg",
+          "agent": "孙尚香",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789911171448
+        },
+        {
+          "id": "mu9uwm06acrzc",
+          "agent": "孙权",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789911185766
         }
       ],
       "createdAt": "2026-09-20"
     }
   ],
   "agentNames": [
+    "孙权",
+    "吕蒙",
     "孙尚香"
   ]
 }
