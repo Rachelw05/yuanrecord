@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9weyg474g66",
+      "name": "蛇蟒之蛰",
+      "type": "special",
+      "upAgents": [
+        "满宠",
+        "刘繇"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9wf24jxx3pi",
+          "agent": "满宠",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913726083
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9wcrilm63es",
       "name": "英徽弥亮",
       "type": "special",
@@ -9,7 +32,7 @@
         "诸葛亮"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wcx3fvimbe",
@@ -64,6 +87,33 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913675518
+        },
+        {
+          "id": "mu9we5y6oss8o",
+          "agent": "司马徽",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913684382
+        },
+        {
+          "id": "mu9weds9wdp9x",
+          "agent": "诸葛亮",
+          "cost": 7,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913694537
+        },
+        {
+          "id": "mu9weilu0i14b",
+          "agent": "诸葛亮",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913700786
         }
       ],
       "createdAt": "2026-09-20"
@@ -919,6 +969,7 @@
     }
   ],
   "agentNames": [
+    "满宠",
     "诸葛亮",
     "司马徽",
     "祢衡",
