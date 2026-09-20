@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mu9w2oxl3jh4c",
+      "name": "云雨滂润",
+      "type": "special",
+      "upAgents": [
+        "诸葛诞",
+        "诸葛瑾"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mu9w2sciv5i5o",
+          "agent": "诸葛诞",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913153538
+        }
+      ],
+      "createdAt": "2026-09-20"
+    },
+    {
       "id": "mu9vztta9cqzi",
       "name": "壑林邀月",
       "type": "special",
@@ -9,7 +32,7 @@
         "夏侯惇"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9vzynv41go8",
@@ -28,6 +51,15 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789913090425
+        },
+        {
+          "id": "mu9w2cl0gp91t",
+          "agent": "夏侯惇",
+          "cost": 39,
+          "isGold": true,
+          "date": "2026-09-20",
+          "note": "",
+          "ts": 1789913133108
         }
       ],
       "createdAt": "2026-09-20"
@@ -583,6 +615,8 @@
     }
   ],
   "agentNames": [
+    "诸葛诞",
+    "夏侯惇",
     "荀攸",
     "虞翻",
     "张燕",
