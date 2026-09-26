@@ -483,6 +483,42 @@
           "date": "2026-09-26",
           "note": "",
           "ts": 1790378490313
+        },
+        {
+          "id": "muhl4vlhtryod",
+          "agent": "黄盖",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-26",
+          "note": "",
+          "ts": 1790378504693
+        },
+        {
+          "id": "muhl57vqg0fml",
+          "agent": "虞翻",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-09-26",
+          "note": "",
+          "ts": 1790378520614
+        },
+        {
+          "id": "muhl5kwswbii4",
+          "agent": "祢衡",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-09-26",
+          "note": "",
+          "ts": 1790378537500
+        },
+        {
+          "id": "muhs82uokuafj",
+          "agent": "张邈",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-09-26",
+          "note": "",
+          "ts": 1790390411376
         }
       ],
       "createdAt": "2026-09-20"
