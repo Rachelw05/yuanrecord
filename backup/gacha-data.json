@@ -519,6 +519,15 @@
           "date": "2026-09-26",
           "note": "",
           "ts": 1790390411376
+        },
+        {
+          "id": "muiaoqbp0t0jt",
+          "agent": "贾诩",
+          "cost": 15,
+          "isGold": true,
+          "date": "2026-09-26",
+          "note": "",
+          "ts": 1790421421381
         }
       ],
       "createdAt": "2026-09-20"
@@ -532,7 +541,7 @@
         "简雍"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wse6hmntqf",
