@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "muqfsbn2i9mlt",
+      "name": "辕门遣将",
+      "type": "normal",
+      "upAgents": [
+        "",
+        ""
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "muqfswdsfffhv",
+          "agent": "徐庶",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-10-02",
+          "note": "",
+          "ts": 1790913743345
+        }
+      ],
+      "createdAt": "2026-10-02"
+    },
+    {
       "id": "mu9wtjonnqge1",
       "name": "绣衣天下",
       "type": "normal",
