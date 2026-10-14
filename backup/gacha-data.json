@@ -40,7 +40,7 @@
         "",
         ""
       ],
-      "pending": 19,
+      "pending": 0,
       "status": "active",
       "records": [
         {
@@ -474,6 +474,15 @@
           "date": "2026-09-20",
           "note": "",
           "ts": 1789914740273
+        },
+        {
+          "id": "mv8poelhha4ax",
+          "agent": "士燮",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-10-15",
+          "note": "",
+          "ts": 1792018720998
         }
       ],
       "createdAt": "2026-09-20"
@@ -487,7 +496,7 @@
         ""
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mu9wsyos6puna",
