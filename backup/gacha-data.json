@@ -9,7 +9,7 @@
         ""
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "muqfswdsfffhv",
@@ -578,6 +578,15 @@
           "date": "2026-10-05",
           "note": "",
           "ts": 1791157248348
+        },
+        {
+          "id": "mv7wo73tku49b",
+          "agent": "黄盖",
+          "cost": 38,
+          "isGold": true,
+          "date": "2026-10-14",
+          "note": "",
+          "ts": 1791970002425
         }
       ],
       "createdAt": "2026-09-20"
