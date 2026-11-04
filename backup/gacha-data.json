@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mw2qswxuougy4",
+      "name": "珠玑琼玖",
+      "type": "special",
+      "upAgents": [
+        "酆公珠",
+        "酆公玖"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mw2qtl256lt31",
+          "agent": "酆公珠",
+          "cost": 6,
+          "isGold": true,
+          "date": "2026-11-05",
+          "note": "",
+          "ts": 1793834627549
+        }
+      ],
+      "createdAt": "2026-11-05"
+    },
+    {
       "id": "muqfsbn2i9mlt",
       "name": "辕门遣将",
       "type": "normal",
@@ -2210,6 +2233,7 @@
     }
   ],
   "agentNames": [
+    "酆公珠",
     "太史慈",
     "张郃",
     "简雍",
@@ -2268,7 +2292,6 @@
     "张燕",
     "甄宓",
     "甘宁",
-    "黄盖",
-    "戏学"
+    "黄盖"
   ]
 }
