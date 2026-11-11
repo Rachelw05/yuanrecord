@@ -1,6 +1,29 @@
 {
   "pools": [
     {
+      "id": "mwcr27vyjbzs1",
+      "name": "陈锡载周",
+      "type": "special",
+      "upAgents": [
+        "陈纪",
+        "周忠"
+      ],
+      "pending": 0,
+      "status": "active",
+      "records": [
+        {
+          "id": "mwcr3gnmvnan7",
+          "agent": "庞德",
+          "cost": 37,
+          "isGold": true,
+          "date": "2026-11-12",
+          "note": "",
+          "ts": 1794439750162
+        }
+      ],
+      "createdAt": "2026-11-12"
+    },
+    {
       "id": "mw2qswxuougy4",
       "name": "珠玑琼玖",
       "type": "special",
@@ -9,7 +32,7 @@
         "酆公玖"
       ],
       "pending": 0,
-      "status": "active",
+      "status": "archived",
       "records": [
         {
           "id": "mw2qtl256lt31",
