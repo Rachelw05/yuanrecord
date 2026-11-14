@@ -8,8 +8,8 @@
         "陈纪",
         "周忠"
       ],
-      "pending": 0,
-      "status": "active",
+      "pending": 3,
+      "status": "archived",
       "records": [
         {
           "id": "mwcr3gnmvnan7",
@@ -583,6 +583,15 @@
           "date": "2026-10-15",
           "note": "",
           "ts": 1792018720998
+        },
+        {
+          "id": "mwgbl5bbbdx2k",
+          "agent": "郭女王",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-11-14",
+          "note": "",
+          "ts": 1794655566121
         }
       ],
       "createdAt": "2026-09-20"
