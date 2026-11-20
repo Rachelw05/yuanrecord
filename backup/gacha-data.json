@@ -50,7 +50,7 @@
         "酆公玖"
       ],
       "pending": 0,
-      "status": "archived",
+      "status": "active",
       "records": [
         {
           "id": "mw2qtl256lt31",
@@ -96,6 +96,15 @@
           "date": "2026-11-05",
           "note": "",
           "ts": 1793834691120
+        },
+        {
+          "id": "mwp34k89ydj2e",
+          "agent": "酆公珠",
+          "cost": 36,
+          "isGold": true,
+          "date": "2026-11-20",
+          "note": "",
+          "ts": 1795185550955
         }
       ],
       "createdAt": "2026-11-05"
