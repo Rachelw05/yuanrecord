@@ -111,7 +111,16 @@ body{
   box-shadow:0 4px 16px rgba(150,100,30,.10);overflow:hidden;
 }
 .pool.archived{opacity:.66}
+.pool.pinned{border:1px solid #e9c477;background:linear-gradient(180deg,#fffdf5,var(--card));box-shadow:0 5px 18px rgba(190,130,30,.18)}
 .pool-main{display:flex;gap:11px;align-items:stretch;cursor:pointer}
+.side-acts{flex:none;width:44px;display:flex;flex-direction:column;gap:5px;justify-content:center}
+.pin-btn{
+  width:44px;min-height:36px;border:1px solid #e6d3a6;border-radius:10px;
+  background:#fffaf0;color:#b97a1e;cursor:pointer;font-size:17px;line-height:1;
+  box-shadow:inset 0 -2px 5px rgba(120,70,0,.08);
+}
+.pin-btn.on{background:linear-gradient(160deg,#f2c67e,#d68f2e);color:#fff;border-color:transparent}
+.pin-btn:active{filter:brightness(.95)}
 .thumb{
   width:62px;flex:none;border-radius:10px;color:#fff;padding:8px 4px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
@@ -128,6 +137,7 @@ body{
 .mini-tag.sp{background:#faecc9;color:#b97a1e}
 .mini-tag.nm{background:#e8ebf5;color:#6a769c}
 .mini-tag.arc{background:#eee9df;color:#9a8a72}
+.mini-tag.top{background:linear-gradient(160deg,#f2c67e,#d68f2e);color:#fff}
 .pool-metrics{display:flex;gap:16px}
 .pm .pv{font-size:15.5px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--ink)}
 .pm .pl{font-size:10.5px;color:var(--ink3)}
@@ -325,7 +335,7 @@ input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,
     </div>
 
     <div id="pools"></div>
-    <div class="ver">版本 v5 · 2026-09-20（新增垫抽 / 距保底计数）</div>
+    <div class="ver">版本 v6 · 2026-11-20（新增卡池置顶）</div>
   </div>
 </div>
 
@@ -582,9 +592,12 @@ function heroFacts(){
 
 /* ============ 渲染 ============ */
 function visiblePools(){
-  return state.pools.filter(p =>
+  const list = state.pools.filter(p =>
     (filter.status==='all' || p.status===filter.status) &&
     (filter.type==='all' || p.type===filter.type));
+  /* 置顶优先，组内保持原有顺序 */
+  return list.map((p,i)=>({p,i})).sort((a,b)=>
+    ((b.p.pinned?1:0)-(a.p.pinned?1:0)) || (a.i-b.i)).map(x=>x.p);
 }
 
 function render(){
@@ -706,13 +719,14 @@ function poolCard(p){
   }
 
   return `
-  <div class="pool ${p.status==='archived'?'archived':''}">
+  <div class="pool ${p.status==='archived'?'archived':''} ${p.pinned?'pinned':''}">
     <div class="pool-main" onclick="toggleExpand('${p.id}')">
       <div class="thumb ${sp?'sp':'nm'}">
         <span class="t1">${thumbName}</span>
       </div>
       <div class="pool-mid">
         <div class="pool-name">
+          ${p.pinned?'<span class="mini-tag top">📌 置顶</span>':''}
           <span class="pn">${esc(title)}</span>
           <span class="mini-tag ${sp?'sp':'nm'}">${sp?'UP池':'普池'}</span>
           ${p.status==='archived'?'<span class="mini-tag arc">已归档</span>':''}
@@ -720,7 +734,10 @@ function poolCard(p){
         <div class="pool-metrics">${metrics}</div>
         ${pity}
       </div>
-      <button class="edit-btn" onclick="event.stopPropagation();openPoolModal('${p.id}')">编辑</button>
+      <div class="side-acts">
+        <button class="pin-btn ${p.pinned?'on':''}" title="${p.pinned?'取消置顶':'置顶此卡池'}" onclick="event.stopPropagation();togglePin('${p.id}')">${p.pinned?'📌':'📍'}</button>
+        <button class="edit-btn" onclick="event.stopPropagation();openPoolModal('${p.id}')">编辑</button>
+      </div>
     </div>
     ${detail}
   </div>`;
@@ -789,7 +806,7 @@ function savePool(){
     state.pools.unshift({
       id: uid(), name, type: draftType,
       upAgents: draftType==='special' ? [up1, up2] : ['',''],
-      pending: pend,
+      pending: pend, pinned: false,
       status:'active', records:[], createdAt: today()
     });
     expanded.add(state.pools[0].id);
@@ -808,6 +825,14 @@ function toggleArchive(id){
   const p = state.pools.find(x=>x.id===id);
   p.status = p.status==='archived' ? 'active' : 'archived';
   save(); render(); toast(p.status==='archived' ? '已归档' : '已恢复');
+}
+/* 置顶/取消置顶：置顶的卡池排在列表最前 */
+function togglePin(id){
+  const p = state.pools.find(x=>x.id===id);
+  if(!p) return;
+  p.pinned = !p.pinned;
+  save(); render();
+  toast(p.pinned ? '已置顶 📌' : '已取消置顶');
 }
 /* 手改垫抽数：0~40，改动后所有统计自动重算 */
 function setPending(id, val){
